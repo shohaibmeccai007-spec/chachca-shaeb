@@ -1,94 +1,139 @@
 import React from 'react';
-import { Quote, TrendingUp, Users, DollarSign } from 'lucide-react';
+import { TrendingUp, Users, DollarSign, Clock, Star, Quote } from 'lucide-react';
 
 const ResultsSection = () => {
-  const results = [
+  const caseStudies = [
     {
-      metric: '+35%',
-      description: 'Conversions in 30 days',
-      icon: TrendingUp,
-      color: 'text-green-600'
+      company: 'TechStart Inc.',
+      industry: 'SaaS',
+      result: '+35% conversions',
+      timeframe: '30 days',
+      description: 'Increased conversion rates by 35% while reducing ad spend by 20% through AI-optimized targeting and creative testing.',
+      logo: '🚀'
     },
     {
-      metric: '+250%',
-      description: 'ROAS improvement',
-      icon: DollarSign,
-      color: 'text-blue-600'
+      company: 'E-commerce Plus',
+      industry: 'Retail',
+      result: '+60% ROAS',
+      timeframe: '45 days',
+      description: 'Achieved 60% higher return on ad spend through automated bid optimization and cross-channel intelligence.',
+      logo: '🛒'
     },
     {
-      metric: '60%',
-      description: 'Reduction in ad waste',
-      icon: Users,
-      color: 'text-orange-600'
+      company: 'ServicePro',
+      industry: 'Services',
+      result: '+45% leads',
+      timeframe: '60 days',
+      description: 'Generated 45% more qualified leads with 24/7 campaign optimization and intelligent audience targeting.',
+      logo: '💼'
     }
   ];
 
   const testimonials = [
     {
-      text: "Flable transformed our marketing completely. We saw a 35% increase in conversions within the first month, and our team can finally focus on strategy instead of daily optimizations.",
-      author: "Sarah Chen",
-      role: "Marketing Director",
-      company: "TechFlow Solutions",
-      avatar: "SC"
+      name: 'Sarah Chen',
+      role: 'Marketing Director',
+      company: 'TechStart Inc.',
+      content: 'Flable.ai transformed our marketing overnight. The AI agents work 24/7, and we\'ve seen incredible ROI improvements. It\'s like having a full marketing team that never sleeps.',
+      rating: 5,
+      avatar: '👩‍💼'
     },
     {
-      text: "The AI CMO approach is brilliant. Having all our marketing channels unified and optimized 24/7 has been a game-changer for our ROI.",
-      author: "Mike Rodriguez",
-      role: "Founder & CEO",
-      company: "GrowthLab",
-      avatar: "MR"
+      name: 'Michael Rodriguez',
+      role: 'CEO',
+      company: 'E-commerce Plus',
+      content: 'The cross-channel intelligence is game-changing. We can finally see the full picture of our customer journey and optimize accordingly. ROI increased by 60% in just 45 days.',
+      rating: 5,
+      avatar: '👨‍💼'
+    },
+    {
+      name: 'Emily Watson',
+      role: 'Founder',
+      company: 'ServicePro',
+      content: 'As a small business, we couldn\'t afford a full marketing team. Flable.ai gives us enterprise-level marketing automation at a fraction of the cost. Highly recommended!',
+      rating: 5,
+      avatar: '👩‍🚀'
     }
   ];
 
-  const clientLogos = [
-    "TechFlow", "GrowthLab", "DataVibe", "CloudSync", "NextGen", "InnovateCo"
+  const stats = [
+    { icon: TrendingUp, value: '+35%', label: 'Average ROI Increase', color: 'text-green-600' },
+    { icon: Users, value: '500+', label: 'Businesses Transformed', color: 'text-blue-600' },
+    { icon: DollarSign, value: '$2M+', label: 'Ad Spend Optimized', color: 'text-purple-600' },
+    { icon: Clock, value: '24/7', label: 'Campaign Monitoring', color: 'text-orange-600' }
   ];
 
   return (
-    <section className="py-20 bg-gray-50">
+    <section className="py-24 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Results Stats */}
-        <div className="text-center mb-16">
-          <h2 className="text-4xl font-bold text-gray-900 mb-4">
-            Proven Results
+        {/* Header */}
+        <div className="text-center mb-20">
+          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+            Proven Results & Social Proof
           </h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto mb-12">
-            See how Flable.ai has helped businesses like yours achieve remarkable growth
+          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            Join hundreds of businesses already seeing incredible results with Flable.ai
           </p>
+        </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
-            {results.map((result, index) => (
-              <div key={index} className="bg-white rounded-xl p-8 shadow-lg hover:shadow-xl transition-shadow">
-                <result.icon className={`h-12 w-12 ${result.color} mx-auto mb-4`} />
-                <div className={`text-4xl font-bold ${result.color} mb-2`}>
-                  {result.metric}
+        {/* Stats Grid */}
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mb-20">
+          {stats.map((stat, index) => (
+            <div key={index} className="text-center bg-gray-50 rounded-2xl p-8 hover:shadow-lg transition-shadow">
+              <stat.icon className={`h-12 w-12 ${stat.color} mx-auto mb-4`} />
+              <div className={`text-4xl font-bold ${stat.color} mb-2`}>{stat.value}</div>
+              <div className="text-gray-600 font-medium">{stat.label}</div>
+            </div>
+          ))}
+        </div>
+
+        {/* Case Studies */}
+        <div className="mb-20">
+          <h3 className="text-3xl font-bold text-gray-900 text-center mb-12">Case Studies</h3>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {caseStudies.map((study, index) => (
+              <div key={index} className="bg-white border-2 border-gray-100 rounded-2xl p-8 hover:shadow-xl transition-shadow hover:border-blue-200">
+                <div className="text-center mb-6">
+                  <div className="text-4xl mb-4">{study.logo}</div>
+                  <h4 className="text-xl font-bold text-gray-900">{study.company}</h4>
+                  <p className="text-gray-600">{study.industry}</p>
                 </div>
-                <p className="text-gray-600 font-medium">{result.description}</p>
+                
+                <div className="text-center mb-6">
+                  <div className="text-3xl font-bold text-green-600 mb-2">{study.result}</div>
+                  <div className="text-gray-600">in {study.timeframe}</div>
+                </div>
+                
+                <p className="text-gray-700 leading-relaxed">{study.description}</p>
               </div>
             ))}
           </div>
         </div>
 
         {/* Testimonials */}
-        <div className="mb-16">
-          <h3 className="text-3xl font-bold text-gray-900 text-center mb-12">
-            What Our Clients Say
-          </h3>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <div>
+          <h3 className="text-3xl font-bold text-gray-900 text-center mb-12">What Our Clients Say</h3>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {testimonials.map((testimonial, index) => (
-              <div key={index} className="bg-white rounded-xl p-8 shadow-lg relative">
-                <Quote className="h-8 w-8 text-blue-200 mb-4" />
-                <p className="text-gray-700 mb-6 leading-relaxed italic">
-                  "{testimonial.text}"
+              <div key={index} className="bg-gradient-to-br from-blue-50 to-indigo-50 rounded-2xl p-8 hover:shadow-xl transition-shadow">
+                <div className="flex items-center mb-4">
+                  {[...Array(testimonial.rating)].map((_, i) => (
+                    <Star key={i} className="h-5 w-5 text-yellow-400 fill-current" />
+                  ))}
+                </div>
+                
+                <Quote className="h-8 w-8 text-blue-600 mb-4" />
+                
+                <p className="text-gray-700 leading-relaxed mb-6 italic">
+                  "{testimonial.content}"
                 </p>
-                <div className="flex items-center space-x-4">
-                  <div className="w-12 h-12 bg-blue-600 rounded-full flex items-center justify-center text-white font-semibold">
-                    {testimonial.avatar}
-                  </div>
+                
+                <div className="flex items-center">
+                  <div className="text-2xl mr-4">{testimonial.avatar}</div>
                   <div>
-                    <div className="font-semibold text-gray-900">{testimonial.author}</div>
-                    <div className="text-gray-600 text-sm">{testimonial.role}</div>
-                    <div className="text-blue-600 text-sm font-medium">{testimonial.company}</div>
+                    <div className="font-bold text-gray-900">{testimonial.name}</div>
+                    <div className="text-gray-600">{testimonial.role}</div>
+                    <div className="text-blue-600 font-semibold">{testimonial.company}</div>
                   </div>
                 </div>
               </div>
@@ -96,17 +141,16 @@ const ResultsSection = () => {
           </div>
         </div>
 
-        {/* Client Logos */}
-        <div className="text-center">
-          <h3 className="text-2xl font-bold text-gray-900 mb-8">
-            Trusted by Growing Companies
-          </h3>
+        {/* Trust Badges */}
+        <div className="mt-20 text-center">
+          <h3 className="text-2xl font-bold text-gray-900 mb-8">Trusted by Leading Brands</h3>
           <div className="flex flex-wrap justify-center items-center gap-8 opacity-60">
-            {clientLogos.map((logo, index) => (
-              <div key={index} className="bg-white px-6 py-3 rounded-lg shadow-sm">
-                <span className="text-xl font-bold text-gray-700">{logo}</span>
-              </div>
-            ))}
+            <div className="bg-gray-100 rounded-lg px-6 py-3 text-gray-600 font-semibold">Meta Ads</div>
+            <div className="bg-gray-100 rounded-lg px-6 py-3 text-gray-600 font-semibold">Google Ads</div>
+            <div className="bg-gray-100 rounded-lg px-6 py-3 text-gray-600 font-semibold">Shopify</div>
+            <div className="bg-gray-100 rounded-lg px-6 py-3 text-gray-600 font-semibold">HubSpot</div>
+            <div className="bg-gray-100 rounded-lg px-6 py-3 text-gray-600 font-semibold">Zoho</div>
+            <div className="bg-gray-100 rounded-lg px-6 py-3 text-gray-600 font-semibold">Shiprocket</div>
           </div>
         </div>
       </div>

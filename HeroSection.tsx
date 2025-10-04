@@ -13,13 +13,8 @@ const HeroSection = () => {
           </div>
           
           <h1 className="text-5xl md:text-7xl font-bold text-gray-900 mb-8 leading-tight">
-            Your AI Marketing Team That 
-            <span className="text-blue-600 block md:inline"> Never Sleeps</span>
+            Flable is an AI-powered digital marketing team that runs and optimizes campaigns 24/7
           </h1>
-          
-          <p className="text-xl md:text-2xl text-gray-600 mb-4 leading-relaxed max-w-4xl mx-auto">
-            Flable is an AI-powered digital marketing team that runs and optimizes campaigns 24/7.
-          </p>
           
           <p className="text-2xl md:text-3xl font-bold text-gray-800 mb-12">
             <span className="text-green-600">Boost ROI</span> while <span className="text-red-500">cutting wasted ad spend</span>
