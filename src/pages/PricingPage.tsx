@@ -6,8 +6,8 @@ const PricingPage = () => {
     {
       name: 'Starter',
       icon: Zap,
-      price: '$2,997',
-      period: '/month',
+      price: 'Custom',
+      period: '',
       description: 'Perfect for small businesses getting started with AI marketing',
       features: [
         '1-2 Marketing Channels',
@@ -18,13 +18,13 @@ const PricingPage = () => {
         'Basic Integrations'
       ],
       popular: false,
-      cta: 'Get Started'
+      cta: 'Book a Demo'
     },
     {
       name: 'Professional',
       icon: Crown,
-      price: '$4,997',
-      period: '/month',
+      price: 'Custom',
+      period: '',
       description: 'Ideal for growing businesses ready to scale',
       features: [
         '3-5 Marketing Channels',
@@ -37,13 +37,13 @@ const PricingPage = () => {
         'A/B Testing Suite'
       ],
       popular: true,
-      cta: 'Most Popular'
+      cta: 'Book a Demo'
     },
     {
       name: 'Enterprise',
       icon: Building,
       price: 'Custom',
-      period: 'pricing',
+      period: '',
       description: 'Tailored solutions for large organizations',
       features: [
         'Unlimited Marketing Channels',
@@ -56,7 +56,7 @@ const PricingPage = () => {
         'SLA Guarantees'
       ],
       popular: false,
-      cta: 'Contact Sales'
+      cta: 'Book a Demo'
     }
   ];
 
@@ -134,15 +134,16 @@ const PricingPage = () => {
                   ))}
                 </ul>
                 
-                <button
-                  className={`w-full py-3 px-6 rounded-lg font-semibold transition-all duration-200 ${
+                <a
+                  href="/book-demo"
+                  className={`w-full block py-3 px-6 rounded-lg font-semibold text-center transition-all duration-200 ${
                     plan.popular
                       ? 'bg-blue-600 text-white hover:bg-blue-700 transform hover:scale-105'
                       : 'bg-gray-100 text-gray-900 hover:bg-gray-200'
                   }`}
                 >
-                  {plan.cta}
-                </button>
+                  Book a Demo
+                </a>
               </div>
             </div>
           ))}

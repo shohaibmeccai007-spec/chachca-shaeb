@@ -1,5 +1,6 @@
 import React from 'react';
 import { Clock, TrendingUp, Zap, Brain, ArrowRight } from 'lucide-react';
+import ScrollReveal from './ScrollReveal';
 
 const ValueProposition = () => {
   const benefits = [
@@ -34,23 +35,28 @@ const ValueProposition = () => {
   ];
 
   return (
-    <section className="py-24 bg-white">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-20">
-          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
-            Why Choose Flable.ai?
-          </h2>
-          <p className="text-xl md:text-2xl text-gray-600 max-w-4xl mx-auto leading-relaxed">
-            Transform your marketing with AI that delivers <span className="font-bold text-blue-600">measurable results</span> while you focus on what matters most
-          </p>
-        </div>
+    <section className="py-32 bg-gradient-to-br from-indigo-50 via-white to-purple-50 relative overflow-hidden">
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-indigo-100/30 via-transparent to-transparent"></div>
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <ScrollReveal>
+          <div className="text-center mb-20">
+            <h2 className="text-5xl md:text-6xl font-bold text-gray-900 mb-6">
+              <span className="bg-gradient-to-r from-indigo-600 to-purple-600 bg-clip-text text-transparent">
+                Why Choose Flable.ai?
+              </span>
+            </h2>
+            <p className="text-xl md:text-2xl text-gray-600 max-w-4xl mx-auto leading-relaxed">
+              Transform your marketing with AI that delivers <span className="font-bold bg-gradient-to-r from-indigo-600 to-purple-600 bg-clip-text text-transparent">measurable results</span> while you focus on what matters most
+            </p>
+          </div>
+        </ScrollReveal>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {benefits.map((benefit, index) => (
-            <div 
-              key={index} 
-              className={`relative group bg-white border-2 rounded-2xl p-8 hover:shadow-2xl transition-all duration-300 cursor-pointer transform hover:-translate-y-2 ${benefit.color}`}
-            >
+            <ScrollReveal key={index} variant="zoom">
+              <div 
+                className={`relative group glass-card hover-float-glow rounded-2xl p-8 transition-all duration-300 cursor-pointer ${benefit.color}`}
+              >
               {/* Background decoration */}
               <div className="absolute top-0 right-0 w-20 h-20 bg-gradient-to-br from-blue-100 to-indigo-100 rounded-bl-2xl opacity-50"></div>
               
@@ -71,29 +77,43 @@ const ValueProposition = () => {
                 </div>
               </div>
 
-              {/* Hover indicator */}
-              <div className="absolute bottom-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                <ArrowRight className={`h-5 w-5 ${benefit.color.split(' ')[1]}`} />
+                {/* Hover indicator */}
+                <div className="absolute bottom-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                  <ArrowRight className={`h-5 w-5 ${benefit.color.split(' ')[1]}`} />
+                </div>
               </div>
-            </div>
+            </ScrollReveal>
           ))}
         </div>
 
         {/* CTA Section */}
-        <div className="mt-20 text-center">
-          <div className="bg-gradient-to-r from-blue-600 to-indigo-700 rounded-2xl p-8 md:p-12">
-            <h3 className="text-3xl md:text-4xl font-bold text-white mb-4">
-              Ready to Transform Your Marketing?
-            </h3>
-            <p className="text-xl text-blue-100 mb-8 max-w-2xl mx-auto">
-              Join thousands of businesses already using AI to boost their marketing performance
-            </p>
-            
-            <button className="bg-white text-blue-600 px-8 py-4 rounded-xl text-lg font-bold hover:bg-gray-50 transition-colors transform hover:scale-105 duration-200 shadow-lg">
-              Book Your Demo Now
-            </button>
+        <ScrollReveal variant="zoom">
+          <div className="mt-24 text-center">
+            <div className="relative">
+              <div className="absolute inset-0 bg-gradient-to-r from-indigo-600/20 via-purple-600/20 to-pink-600/20 rounded-3xl blur-3xl"></div>
+              <div className="relative bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-600 rounded-3xl p-12 md:p-16 overflow-hidden">
+                <div className="absolute inset-0 bg-gradient-to-r from-indigo-600/90 via-purple-600/90 to-pink-600/90"></div>
+                <div className="relative z-10">
+                  <h3 className="text-5xl md:text-6xl font-bold text-white mb-6">
+                    Ready to Transform Your Marketing?
+                  </h3>
+                  <p className="text-2xl text-indigo-100 mb-10 max-w-3xl mx-auto leading-relaxed">
+                    Join thousands of businesses already using AI to boost their marketing performance and scale their growth.
+                  </p>
+                  
+                  <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
+                    <button className="bg-white text-indigo-600 px-8 py-4 rounded-2xl font-bold text-lg hover:bg-gray-50 transition-all duration-300 transform hover:scale-105 shadow-lg">
+                      Book Your Demo Now
+                    </button>
+                    <button className="text-white border-2 border-white/30 px-8 py-4 rounded-2xl font-semibold text-lg hover:bg-white/10 transition-all duration-300">
+                      View Pricing
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
-        </div>
+        </ScrollReveal>
       </div>
     </section>
   );

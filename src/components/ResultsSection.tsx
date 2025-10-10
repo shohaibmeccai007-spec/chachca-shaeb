@@ -1,5 +1,6 @@
 import React from 'react';
 import { Quote, TrendingUp, Users, DollarSign } from 'lucide-react';
+import ScrollReveal from './ScrollReveal';
 
 const ResultsSection = () => {
   const results = [
@@ -25,90 +26,110 @@ const ResultsSection = () => {
 
   const testimonials = [
     {
-      text: "Flable transformed our marketing completely. We saw a 35% increase in conversions within the first month, and our team can finally focus on strategy instead of daily optimizations.",
-      author: "Sarah Chen",
-      role: "Marketing Director",
-      company: "TechFlow Solutions",
-      avatar: "SC"
+      text: "Flable's AI CMO has revolutionized our marketing operations. We've seen a 40% increase in ROAS and 60% reduction in manual work. The platform's intelligence is unmatched.",
+      author: "Alex Kumar",
+      role: "Head of Growth",
+      company: "MYOP",
+      avatar: "AK"
     },
     {
-      text: "The AI CMO approach is brilliant. Having all our marketing channels unified and optimized 24/7 has been a game-changer for our ROI.",
-      author: "Mike Rodriguez",
-      role: "Founder & CEO",
-      company: "GrowthLab",
-      avatar: "MR"
+      text: "As an education platform, we needed sophisticated marketing automation. Flable delivered beyond expectations with their AI-driven approach, increasing our student acquisition by 45%.",
+      author: "Priya Sharma",
+      role: "Marketing Director",
+      company: "Edureka",
+      avatar: "PS"
     }
   ];
 
   const clientLogos = [
-    "TechFlow", "GrowthLab", "DataVibe", "CloudSync", "NextGen", "InnovateCo"
+    "MYOP", "Edureka"
   ];
 
   return (
-    <section className="py-20 bg-gray-50">
+    <section className="py-20 bg-gradient-to-br from-purple-50 via-white to-purple-100">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Results Stats */}
-        <div className="text-center mb-16">
-          <h2 className="text-4xl font-bold text-gray-900 mb-4">
-            Proven Results
-          </h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto mb-12">
-            See how Flable.ai has helped businesses like yours achieve remarkable growth
-          </p>
+        <ScrollReveal>
+          <div className="text-center mb-16">
+            <h2 className="text-5xl font-bold text-gray-900 mb-6">
+              <span className="bg-gradient-to-r from-indigo-600 to-purple-600 bg-clip-text text-transparent">
+                Proven Results
+              </span>
+            </h2>
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto mb-12">
+              See how Flable.ai has helped businesses like yours achieve remarkable growth
+            </p>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
-            {results.map((result, index) => (
-              <div key={index} className="bg-white rounded-xl p-8 shadow-lg hover:shadow-xl transition-shadow">
-                <result.icon className={`h-12 w-12 ${result.color} mx-auto mb-4`} />
-                <div className={`text-4xl font-bold ${result.color} mb-2`}>
-                  {result.metric}
-                </div>
-                <p className="text-gray-600 font-medium">{result.description}</p>
-              </div>
-            ))}
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
+              {results.map((result, index) => (
+                <ScrollReveal key={index} variant="zoom">
+                  <div className="glass-card hover-float-glow rounded-2xl p-8 cursor-hover">
+                    <result.icon className={`h-12 w-12 ${result.color} mx-auto mb-4`} />
+                    <div className={`text-4xl font-bold ${result.color} mb-2`}>
+                      {result.metric}
+                    </div>
+                    <p className="text-gray-600 font-medium">{result.description}</p>
+                  </div>
+                </ScrollReveal>
+              ))}
+            </div>
           </div>
-        </div>
+        </ScrollReveal>
 
         {/* Testimonials */}
-        <div className="mb-16">
-          <h3 className="text-3xl font-bold text-gray-900 text-center mb-12">
-            What Our Clients Say
-          </h3>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            {testimonials.map((testimonial, index) => (
-              <div key={index} className="bg-white rounded-xl p-8 shadow-lg relative">
-                <Quote className="h-8 w-8 text-blue-200 mb-4" />
-                <p className="text-gray-700 mb-6 leading-relaxed italic">
-                  "{testimonial.text}"
-                </p>
-                <div className="flex items-center space-x-4">
-                  <div className="w-12 h-12 bg-blue-600 rounded-full flex items-center justify-center text-white font-semibold">
-                    {testimonial.avatar}
+        <ScrollReveal>
+          <div className="mb-16">
+            <h3 className="text-4xl font-bold text-gray-900 text-center mb-12">
+              <span className="bg-gradient-to-r from-indigo-600 to-purple-600 bg-clip-text text-transparent">
+                What Our Clients Say
+              </span>
+            </h3>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+              {testimonials.map((testimonial, index) => (
+                <ScrollReveal key={index} variant="zoom">
+                  <div className="glass-card hover-float-glow rounded-2xl p-8 relative cursor-hover">
+                    <Quote className="h-8 w-8 text-indigo-300 mb-4" />
+                    <p className="text-gray-700 mb-6 leading-relaxed italic text-lg">
+                      "{testimonial.text}"
+                    </p>
+                    <div className="flex items-center space-x-4">
+                      <div className="w-14 h-14 bg-gradient-to-br from-indigo-500 to-purple-600 rounded-full flex items-center justify-center text-white font-bold text-lg">
+                        {testimonial.avatar}
+                      </div>
+                      <div>
+                        <div className="font-bold text-gray-900 text-lg">{testimonial.author}</div>
+                        <div className="text-gray-600">{testimonial.role}</div>
+                        <div className="text-indigo-600 font-semibold">{testimonial.company}</div>
+                      </div>
+                    </div>
                   </div>
-                  <div>
-                    <div className="font-semibold text-gray-900">{testimonial.author}</div>
-                    <div className="text-gray-600 text-sm">{testimonial.role}</div>
-                    <div className="text-blue-600 text-sm font-medium">{testimonial.company}</div>
-                  </div>
-                </div>
-              </div>
-            ))}
+                </ScrollReveal>
+              ))}
+            </div>
           </div>
-        </div>
+        </ScrollReveal>
 
         {/* Client Logos */}
-        <div className="text-center">
-          <h3 className="text-2xl font-bold text-gray-900 mb-8">
-            Trusted by Growing Companies
-          </h3>
-          <div className="flex flex-wrap justify-center items-center gap-8 opacity-60">
-            {clientLogos.map((logo, index) => (
-              <div key={index} className="bg-white px-6 py-3 rounded-lg shadow-sm">
-                <span className="text-xl font-bold text-gray-700">{logo}</span>
-              </div>
-            ))}
+        <ScrollReveal>
+          <div className="text-center">
+            <h3 className="text-3xl font-bold text-gray-900 mb-8">
+              <span className="bg-gradient-to-r from-indigo-600 to-purple-600 bg-clip-text text-transparent">
+                Trusted by Industry Leaders
+              </span>
+            </h3>
+            <div className="flex flex-wrap justify-center items-center gap-12">
+              {clientLogos.map((logo, index) => (
+                <ScrollReveal key={logo} variant="zoom">
+                  <div className="glass-card px-8 py-4 rounded-2xl hover-float-glow cursor-hover">
+                    <span className="text-2xl font-bold bg-gradient-to-r from-indigo-600 to-purple-600 bg-clip-text text-transparent">
+                      {logo}
+                    </span>
+                  </div>
+                </ScrollReveal>
+              ))}
+            </div>
           </div>
-        </div>
+        </ScrollReveal>
       </div>
     </section>
   );

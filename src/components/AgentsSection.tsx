@@ -154,3 +154,6 @@ const AgentsSection = () => {
 };
 
 export default AgentsSection;
+
+// AgentsSection component removed. You can now use this file for Use Cases and Blogs sections.
+// If you want to add those, create new components and import/use them here.
