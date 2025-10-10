@@ -93,10 +93,11 @@ const AICMOHierarchy: React.FC = () => {
                 style={{ minHeight: '400px' }}
               >
                 <defs>
+                  {/* Brand gradient: magenta → violet → cyan */}
                   <linearGradient id="centerGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-                    <stop offset="0%" stopColor="#6366F1" />
-                    <stop offset="50%" stopColor="#8B5CF6" />
-                    <stop offset="100%" stopColor="#EC4899" />
+                    <stop offset="0%" stopColor="#ff2aad" />
+                    <stop offset="50%" stopColor="#8b5cf6" />
+                    <stop offset="100%" stopColor="#06b6d4" />
                   </linearGradient>
                   
                   <filter id="glow">
@@ -126,11 +127,12 @@ const AICMOHierarchy: React.FC = () => {
                     x2={agent.position.x}
                     y2={agent.position.y}
                     stroke="url(#centerGradient)"
-                    strokeWidth="3"
+                    strokeWidth="4"
                     strokeLinecap="round"
-                    opacity="0.6"
+                    opacity="0.8"
                     style={{
-                      strokeDasharray: '5,5',
+                      filter: 'drop-shadow(0 0 8px rgba(255,42,173,0.35)) drop-shadow(0 0 12px rgba(139,92,246,0.25))',
+                      strokeDasharray: '6,6',
                       animation: 'dash 2s linear infinite'
                     }}
                   />
@@ -141,7 +143,7 @@ const AICMOHierarchy: React.FC = () => {
                   <circle
                     cx={centerPosition.x}
                     cy={centerPosition.y}
-                    r="40"
+                    r="44"
                     fill="url(#centerGradient)"
                     filter="url(#glow)"
                     className="transition-all duration-300 group-hover:scale-110"
@@ -180,12 +182,12 @@ const AICMOHierarchy: React.FC = () => {
                       <circle
                         cx={agent.position.x}
                         cy={agent.position.y}
-                        r="25"
+                        r="28"
                         fill={agent.color}
                         filter="url(#pulse)"
                         className="transition-all duration-300 group-hover:scale-110"
                         style={{
-                          boxShadow: `0 0 20px ${agent.color}40`
+                          boxShadow: `0 0 24px ${agent.color}40`
                         }}
                       />
                       <circle

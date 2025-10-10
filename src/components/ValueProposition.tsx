@@ -6,29 +6,29 @@ const ValueProposition = () => {
   const benefits = [
     {
       icon: Clock,
-      title: 'Save Time',
-      description: 'Automate campaign management, creative testing, and optimization so you can focus on strategy and growth.',
+      title: 'Your Time Back',
+      description: 'Stop drowning in spreadsheets and campaign tweaks. Let your AI CMO handle the grunt work while you focus on the big picture.',
       stat: '85% time saved',
       color: 'bg-blue-50 text-blue-600 border-blue-200'
     },
     {
       icon: TrendingUp,
-      title: 'Optimize ROI',
-      description: 'AI-driven insights and real-time adjustments maximize returns on every marketing dollar you invest.',
+      title: 'ROI That Actually Rocks',
+      description: 'Watch your returns soar as our AI finds hidden opportunities and optimizes every dollar like a marketing genius.',
       stat: '+35% ROI boost',
       color: 'bg-green-50 text-green-600 border-green-200'
     },
     {
       icon: Zap,
-      title: '24/7 Execution',
-      description: 'Your campaigns never sleep. Continuous monitoring and optimization around the clock, every day.',
+      title: 'Always-On Marketing',
+      description: 'While you sleep, your AI CMO is working. 24/7 optimization means your campaigns never miss a beat.',
       stat: '24/7 optimization',
       color: 'bg-orange-50 text-orange-600 border-orange-200'
     },
     {
       icon: Brain,
-      title: 'Cross-Channel Intelligence',
-      description: 'Unified data from ads, analytics, and Shopify for smarter, more effective marketing decisions.',
+      title: 'Marketing Superpowers',
+      description: 'Connect all your channels into one powerful brain. See the full picture and make decisions that actually work.',
       stat: '5+ channels unified',
       color: 'bg-purple-50 text-purple-600 border-purple-200'
     }
@@ -40,14 +40,14 @@ const ValueProposition = () => {
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <ScrollReveal>
           <div className="text-center mb-20">
-            <h2 className="text-5xl md:text-6xl font-bold text-gray-900 mb-6">
-              <span className="bg-gradient-to-r from-indigo-600 to-purple-600 bg-clip-text text-transparent">
-                Why Choose Flable.ai?
-              </span>
-            </h2>
-            <p className="text-xl md:text-2xl text-gray-600 max-w-4xl mx-auto leading-relaxed">
-              Transform your marketing with AI that delivers <span className="font-bold bg-gradient-to-r from-indigo-600 to-purple-600 bg-clip-text text-transparent">measurable results</span> while you focus on what matters most
-            </p>
+                <h2 className="text-5xl md:text-6xl font-bold text-gray-900 mb-6">
+                  <span className="brand-text">
+                    Why Marketers Love Us
+                  </span>
+                </h2>
+                <p className="text-xl md:text-2xl text-gray-600 max-w-4xl mx-auto leading-relaxed">
+                  Because we're not just another AI tool—we're your <span className="font-bold brand-text">marketing soulmate</span>. We get you, we get your challenges, and we make marketing fun again.
+                </p>
           </div>
         </ScrollReveal>
 

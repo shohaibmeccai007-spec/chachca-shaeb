@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { BookOpen, Calendar, TrendingUp, Brain, Lightbulb, BarChart3, ArrowRight, Search, Filter } from 'lucide-react';
+import { BookOpen, Calendar, TrendingUp, Brain, Lightbulb, BarChart3, ArrowRight, Search, Filter, Target, Users, DollarSign } from 'lucide-react';
 import ScrollReveal from '../components/ScrollReveal';
+import CaseStudies from '../components/CaseStudies';
 
 const BlogPage = () => {
   const [blogs, setBlogs] = useState([]);
@@ -12,7 +13,7 @@ const BlogPage = () => {
   const [newsletterEmail, setNewsletterEmail] = useState('');
 
   const categories = [
-    'All Posts', 'AI Marketing', 'Growth', 'Analytics', 'Automation', 'Strategy', 'Case Study'
+    'All Posts', 'AI Marketing', 'Growth', 'Analytics', 'Automation', 'Strategy', 'Case Study', 'Success Stories'
   ];
 
   const iconMap = {
@@ -21,7 +22,8 @@ const BlogPage = () => {
     'Analytics': BarChart3,
     'Automation': Brain,
     'Strategy': Lightbulb,
-    'Case Study': TrendingUp
+    'Case Study': Target,
+    'Success Stories': Users
   };
 
   // Fetch blogs from API
@@ -235,6 +237,13 @@ const BlogPage = () => {
             })}
           </div>
         )}
+
+        {/* Case Studies Section */}
+        {selectedCategory === 'All Posts' || selectedCategory === 'Success Stories' || selectedCategory === 'Case Study' ? (
+          <div className="mb-16">
+            <CaseStudies />
+          </div>
+        ) : null}
 
         {/* Newsletter Signup */}
         <ScrollReveal variant="zoom">
