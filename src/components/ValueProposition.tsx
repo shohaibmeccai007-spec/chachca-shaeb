@@ -86,34 +86,6 @@ const ValueProposition = () => {
           ))}
         </div>
 
-        {/* CTA Section */}
-        <ScrollReveal variant="zoom">
-          <div className="mt-24 text-center">
-            <div className="relative">
-              <div className="absolute inset-0 bg-gradient-to-r from-indigo-600/20 via-purple-600/20 to-pink-600/20 rounded-3xl blur-3xl"></div>
-              <div className="relative bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-600 rounded-3xl p-12 md:p-16 overflow-hidden">
-                <div className="absolute inset-0 bg-gradient-to-r from-indigo-600/90 via-purple-600/90 to-pink-600/90"></div>
-                <div className="relative z-10">
-                  <h3 className="text-5xl md:text-6xl font-bold text-white mb-6">
-                    Ready to Transform Your Marketing?
-                  </h3>
-                  <p className="text-2xl text-indigo-100 mb-10 max-w-3xl mx-auto leading-relaxed">
-                    Join thousands of businesses already using AI to boost their marketing performance and scale their growth.
-                  </p>
-                  
-                  <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
-                    <button className="bg-white text-indigo-600 px-8 py-4 rounded-2xl font-bold text-lg hover:bg-gray-50 transition-all duration-300 transform hover:scale-105 shadow-lg">
-                      Book Your Demo Now
-                    </button>
-                    <button className="text-white border-2 border-white/30 px-8 py-4 rounded-2xl font-semibold text-lg hover:bg-white/10 transition-all duration-300">
-                      View Pricing
-                    </button>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </ScrollReveal>
       </div>
     </section>
   );
