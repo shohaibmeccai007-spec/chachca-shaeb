@@ -19,7 +19,7 @@ const Header = () => {
         <div className="flex justify-between items-center h-20">
           {/* Logo */}
           <Link to="/" className="flex items-center space-x-3 group">
-            <img src="/assets/logo.png" alt="Flable.ai" className="h-10 w-auto rounded-md shadow-sm" />
+            <img src="/assets/logo.PNG" alt="Flable.ai" className="h-10 w-auto rounded-md shadow-sm" />
             <span className="text-2xl font-bold brand-text">Flable.ai</span>
           </Link>
 

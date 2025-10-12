@@ -1,3 +1,4 @@
+import RotatingImagesSection from './RotatingImagesSection';
 import ScrollReveal from './ScrollReveal';
 
 const HeroSection = () => (
@@ -41,6 +42,8 @@ const HeroSection = () => (
             </div>
           </div>
         </div>
+              {/* Rotating Images Section */}
+      <RotatingImagesSection />
       </ScrollReveal>
     </div>
   </section>
