@@ -31,7 +31,7 @@ const BlogPage = () => {
     const fetchBlogs = async () => {
       try {
         setLoading(true);
-        const response = await fetch(`${process.env.REACT_APP_API_URL || 'http://localhost:5000'}/api/blogs`);
+        const response = await fetch(`${process.env.REACT_APP_API_URL || 'http://localhost:3001'}/api/blogs`);
         const data = await response.json();
         
         if (data.success) {
@@ -66,7 +66,7 @@ const BlogPage = () => {
   const handleNewsletterSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await fetch(`${process.env.REACT_APP_API_URL || 'http://localhost:5000'}/api/newsletter/subscribe`, {
+      const response = await fetch(`${process.env.REACT_APP_API_URL || 'http://localhost:3001'}/api/newsletter/subscribe`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

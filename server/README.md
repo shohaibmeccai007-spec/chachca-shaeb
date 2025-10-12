@@ -31,9 +31,19 @@ ADMIN_EMAIL=info@flable.ai
 GOOGLE_SHEET_ID=your-google-sheet-id
 GOOGLE_SERVICE_ACCOUNT_EMAIL=your-service-account@your-project.iam.gserviceaccount.com
 GOOGLE_PRIVATE_KEY="-----BEGIN PRIVATE KEY-----\nYour private key here\n-----END PRIVATE KEY-----\n"
+
+# Google Gemini AI Configuration
+GEMINI_API_KEY=your-gemini-api-key
 ```
 
-### 3. Google Sheets Setup
+### 3. Google Gemini AI Setup
+1. Go to [Google AI Studio](https://makersuite.google.com/app/apikey)
+2. Sign in with your Google account
+3. Click "Create API Key"
+4. Copy the generated API key
+5. Add it to your .env file as `GEMINI_API_KEY`
+
+### 4. Google Sheets Setup
 1. Create a new Google Sheet
 2. Go to Google Cloud Console
 3. Create a new project or select existing
@@ -44,16 +54,16 @@ GOOGLE_PRIVATE_KEY="-----BEGIN PRIVATE KEY-----\nYour private key here\n-----END
 8. Copy the Sheet ID from the URL
 9. Add the service account email and private key to your .env file
 
-### 4. Gmail Setup
+### 5. Gmail Setup
 1. Enable 2-factor authentication on your Gmail account
 2. Generate an App Password
 3. Use the App Password in EMAIL_PASS (not your regular password)
 
-### 5. MongoDB Setup
+### 6. MongoDB Setup
 - Local: Install MongoDB locally
 - Cloud: Use MongoDB Atlas and update MONGODB_URI
 
-### 6. Run the Server
+### 7. Run the Server
 ```bash
 # Development
 npm run dev

@@ -1,202 +1,180 @@
-import React from 'react';
-import { Check, Star, Zap, Crown, Building, Shield, Phone } from 'lucide-react';
+import React, { useState } from 'react';
 
-const PricingPage = () => {
-  const plans = [
-    {
-      name: 'Starter',
-      icon: Zap,
-      price: 'Custom',
-      period: '',
-      description: 'Perfect for small businesses getting started with AI marketing',
-      features: [
-        '1-2 Marketing Channels',
-        'Basic AI Agents (Creative, Performance)',
-        'Weekly Reporting',
-        'Email Support',
-        'Up to $10K Ad Spend',
-        'Basic Integrations'
-      ],
-      popular: false,
-      cta: 'Book a Demo'
-    },
-    {
-      name: 'Professional',
-      icon: Crown,
-      price: 'Custom',
-      period: '',
-      description: 'Ideal for growing businesses ready to scale',
-      features: [
-        '3-5 Marketing Channels',
-        'All AI Agents Included',
-        'Daily Reporting & Analytics',
-        'Priority Support',
-        'Up to $50K Ad Spend',
-        'Advanced Integrations',
-        'Custom Dashboards',
-        'A/B Testing Suite'
-      ],
-      popular: true,
-      cta: 'Book a Demo'
-    },
-    {
-      name: 'Enterprise',
-      icon: Building,
-      price: 'Custom',
-      period: '',
-      description: 'Tailored solutions for large organizations',
-      features: [
-        'Unlimited Marketing Channels',
-        'Custom AI Agent Development',
-        'Real-time Reporting',
-        'Dedicated Account Manager',
-        'Unlimited Ad Spend',
-        'Custom Integrations',
-        'White-label Options',
-        'SLA Guarantees'
-      ],
-      popular: false,
-      cta: 'Book a Demo'
-    }
-  ];
+type CurrencyCode = 'USD' | 'EUR' | 'GBP' | 'INR' | 'AUD' | 'CAD' | 'AED';
+
+const currencyData = [
+  { code: 'USD' as CurrencyCode, symbol: '$', name: 'US Dollar', rate: 85 },   // 1 USD = 85 INR
+  { code: 'EUR' as CurrencyCode, symbol: '€', name: 'Euro', rate: 90 },       // 1 EUR = 90 INR
+  { code: 'GBP' as CurrencyCode, symbol: '£', name: 'British Pound', rate: 105 },// 1 GBP = 105 INR
+  { code: 'INR' as CurrencyCode, symbol: '₹', name: 'Indian Rupee', rate: 1 },  // 1 INR = 1 INR
+  { code: 'AUD' as CurrencyCode, symbol: 'A$', name: 'Australian Dollar', rate: 56 },  // 1 AUD = 56 INR
+  { code: 'CAD' as CurrencyCode, symbol: 'C$', name: 'Canadian Dollar', rate: 62 },   // 1 CAD = 62 INR
+  { code: 'AED' as CurrencyCode, symbol: 'د.إ', name: 'UAE Dirham', rate: 23 },      // 1 AED = 23 INR
+];
+
+const adSpendMilestonesINR = [5000, 50000, 100000, 250000, 500000, 1000000, 1500000];
+const gmvMilestonesINR = [10000, 100000, 250000, 500000, 1000000, 2000000, 3000000];
+
+function formatNumber(val: number, code: CurrencyCode): string {
+  if (code === 'INR') {
+    return val.toLocaleString('en-IN', { maximumFractionDigits: 0 });
+  }
+  if (code === 'EUR') {
+    return val.toLocaleString('de-DE', { maximumFractionDigits: 0 });
+  }
+  if (code === 'AED') {
+    return val.toLocaleString('en-AE', { maximumFractionDigits: 0 });
+  }
+  return val.toLocaleString(undefined, { maximumFractionDigits: 0 });
+}
+
+const formatCurrency = (val: number, symbol: string, code: CurrencyCode) =>
+  symbol + formatNumber(val, code);
+
+const getLocalFromINR = (amountInINR: number, rate: number): number => Math.floor(amountInINR / rate);
+
+const PricingPage: React.FC = () => {
+  const [currency, setCurrency] = useState(currencyData[0]);
+  const [gmv, setGMV] = useState<number>(getLocalFromINR(100000, currencyData[0].rate));
+  const [adSpend, setAdSpend] = useState<number>(getLocalFromINR(10000, currencyData[0].rate));
+  const [campaigns, setCampaigns] = useState<number>(5);
+
+  // Limits in selected currency
+  const adSpendCap = getLocalFromINR(1500000, currency.rate);
+  const gmvCap = getLocalFromINR(3000000, currency.rate);
+
+  // Build milestone arrays per currency (milestones <= cap)
+  const milestones = adSpendMilestonesINR.map(amt => getLocalFromINR(amt, currency.rate)).filter(v => v <= adSpendCap);
+
+  // Fix slider value if over new cap (when changing currency)
+  React.useEffect(() => {
+    if (adSpend > adSpendCap) setAdSpend(adSpendCap);
+    if (gmv > gmvCap) setGMV(gmvCap);
+  }, [currency]);
+
+  const usdRate = 85;
+  const eurRate = 90;
+  // CALCULATION correct conversion
+  const fee = (gmv * 0.002) + (adSpend * 0.025);
+
+  let showApprox: { text: string; sym: string };
+  if (currency.code === 'INR') {
+    // INR -> USD
+    showApprox = { text: formatCurrency(fee / usdRate, '$', 'USD'), sym: 'USD' };
+  } else if (currency.code === 'USD') {
+    // USD -> EUR
+    showApprox = { text: formatCurrency(fee * (usdRate / eurRate), '€', 'EUR'), sym: 'EUR' };
+  } else if (currency.code === 'EUR') {
+    // EUR -> USD
+    showApprox = { text: formatCurrency(fee * (eurRate / usdRate), '$', 'USD'), sym: 'USD' };
+  } else {
+    // Others: local -> USD
+    showApprox = { text: formatCurrency(fee * currency.rate / usdRate, '$', 'USD'), sym: 'USD' };
+  }
+
+  // Helper to add plus sign only at cap
+  const showValue = (val: number, max: number, code: CurrencyCode, symbol: string) =>
+    (val >= max ? symbol + formatNumber(max, code) + '+' : symbol + formatNumber(val, code));
 
   return (
-    <div className="min-h-screen bg-white py-12">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Header */}
-        <div className="text-center mb-16">
-          <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
-            Simple, Transparent Pricing
-          </h1>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto mb-8">
-            Choose the plan that fits your business size and marketing goals. All plans include our core AI CMO technology.
-          </p>
-          
-          <div className="flex items-center justify-center space-x-4 text-sm text-gray-600">
-            <div className="flex items-center space-x-2">
-              <Check className="h-5 w-5 text-green-500" />
-              <span>No setup fees</span>
+    <div className="min-h-screen bg-gradient-to-br from-[#f5e6ff] via-[#f0f9ff] to-[#e5f2ff] flex flex-col items-center justify-center py-12">
+      <div className="w-full max-w-2xl bg-white/80 dark:bg-[#211b2a]/90 shadow-2xl rounded-3xl p-10 border border-blue-100 dark:border-blue-950 relative overflow-hidden">
+        <div className="absolute -top-32 -left-32 w-96 h-96 bg-gradient-to-br from-fuchsia-300 via-violet-300 to-cyan-200 rounded-full blur-3xl opacity-60 pointer-events-none"></div>
+        <div className="absolute -bottom-32 -right-32 w-96 h-96 bg-gradient-to-tr from-cyan-200 via-violet-300 to-pink-300 rounded-full blur-3xl opacity-50 pointer-events-none"></div>
+        <h1 className="text-4xl md:text-5xl font-bold mb-3 text-center bg-gradient-to-r from-fuchsia-600 via-violet-600 to-cyan-500 bg-clip-text text-transparent">
+          AI CMO Pricing Calculator
+        </h1>
+        <p className="text-lg md:text-xl text-gray-700 dark:text-gray-100 text-center mb-12 max-w-xl mx-auto">
+          Get an instant quote — see your monthly subscription tailored to your business size and country.
+        </p>
+        <div className="flex flex-col md:flex-row md:items-center justify-center gap-3 mb-8 w-full">
+          <span className="font-semibold text-gray-800 dark:text-gray-100">Country/Currency: </span>
+          <select
+            value={currency.code}
+            onChange={e => {
+              const cur = currencyData.find(c => c.code === e.target.value as CurrencyCode);
+              setCurrency(cur || currencyData[0]);
+            }}
+            className="rounded-xl border border-gray-300 px-5 py-2 bg-white text-lg focus:outline-none focus:ring-violet-400"
+          >
+            {currencyData.map(cur => (
+              <option key={cur.code} value={cur.code}>{cur.name} ({cur.symbol})</option>
+            ))}
+          </select>
+        </div>
+        <div className="flex flex-wrap items-center gap-2 justify-center mb-7">
+          {milestones.map((ms) => {
+            const isCap = ms === adSpendCap;
+            return (
+              <button
+                key={ms}
+                type="button"
+                className={
+                  "px-4 py-2 rounded-full bg-gradient-to-br text-white font-bold text-lg focus:outline-none " +
+                  (adSpend === ms ? "from-fuchsia-600 to-cyan-500 shadow-xl scale-110" : "from-gray-300 to-violet-200 opacity-90 hover:from-fuchsia-300 hover:to-cyan-300")}
+                onClick={() => setAdSpend(ms)}
+              >
+                {currency.symbol}{formatNumber(ms, currency.code)}{isCap ? '+' : ''} /mo
+              </button>
+            );
+          })}
+        </div>
+        <div className="space-y-8 mb-10 mt-3">
+          <div>
+            <label className="block mb-2 font-semibold text-gray-800 dark:text-gray-100">GMV (Monthly Gross Merchandise Volume)</label>
+            <div className="flex items-center space-x-4">
+              <input
+                type="range"
+                min={0} max={gmvCap} step={1000}
+                value={gmv}
+                onChange={e => setGMV(Number(e.target.value))}
+                style={{background: `linear-gradient(90deg, #f472b6 ${(gmv/gmvCap)*100}%, #e0e7ff ${(gmv/gmvCap)*100}%)`}}
+                className="w-full accent-fuchsia-500 cursor-pointer h-2 rounded-lg appearance-none outline-none bg-gradient-to-r from-fuchsia-500 via-violet-400 to-cyan-400 shadow-inner"
+              />
+              <span className="w-28 text-right font-mono text-lg">{showValue(gmv, gmvCap, currency.code, currency.symbol)}</span>
             </div>
-            <div className="flex items-center space-x-2">
-              <Check className="h-5 w-5 text-green-500" />
-              <span>Cancel anytime</span>
+          </div>
+          <div>
+            <label className="block mb-2 font-semibold text-gray-800 dark:text-gray-100">Ad Spend (Monthly)</label>
+            <div className="flex items-center space-x-4">
+              <input
+                type="range"
+                min={0} max={adSpendCap} step={500}
+                value={adSpend}
+                onChange={e => setAdSpend(Number(e.target.value))}
+                style={{background: `linear-gradient(90deg, #a21caf ${(adSpend/adSpendCap)*100}%, #e0e7ff ${(adSpend/adSpendCap)*100}%)`}}
+                className="w-full accent-violet-700 cursor-pointer h-2 rounded-lg appearance-none outline-none bg-gradient-to-r from-fuchsia-500 via-violet-600 to-cyan-400 shadow-inner"
+              />
+              <span className="w-28 text-right font-mono text-lg">{showValue(adSpend, adSpendCap, currency.code, currency.symbol)}</span>
             </div>
-            <div className="flex items-center space-x-2">
-              <Check className="h-5 w-5 text-green-500" />
-              <span>30-day money back guarantee</span>
+          </div>
+          <div>
+            <label className="block mb-2 font-semibold text-gray-800 dark:text-gray-100">Active Campaigns</label>
+            <div className="flex items-center space-x-4">
+              <input
+                type="range"
+                min={1} max={50}
+                value={campaigns}
+                onChange={e => setCampaigns(Number(e.target.value))}
+                style={{background: `linear-gradient(90deg, #06b6d4 ${(campaigns/50)*100}%, #e0e7ff ${(campaigns/50)*100}%)`}}
+                className="w-full accent-cyan-500 cursor-pointer h-2 rounded-lg appearance-none outline-none bg-gradient-to-r from-fuchsia-500 via-violet-600 to-cyan-400 shadow-inner"
+              />
+              <span className="w-16 text-right font-mono text-lg">{campaigns}</span>
             </div>
           </div>
         </div>
-
-        {/* Pricing Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
-          {plans.map((plan, index) => (
-            <div
-              key={index}
-              className={`relative bg-white rounded-2xl shadow-xl border-2 transition-all duration-300 hover:shadow-2xl ${
-                plan.popular 
-                  ? 'border-blue-500 transform scale-105' 
-                  : 'border-gray-200 hover:border-blue-300'
-              }`}
-            >
-              {plan.popular && (
-                <div className="absolute -top-4 left-1/2 transform -translate-x-1/2">
-                  <div className="bg-blue-600 text-white px-4 py-2 rounded-full text-sm font-semibold flex items-center space-x-1">
-                    <Star className="h-4 w-4" />
-                    <span>Most Popular</span>
-                  </div>
-                </div>
-              )}
-              
-              <div className="p-8">
-                <div className="flex items-center space-x-3 mb-4">
-                  <plan.icon className={`h-8 w-8 ${plan.popular ? 'text-blue-600' : 'text-gray-600'}`} />
-                  <h3 className="text-2xl font-bold text-gray-900">{plan.name}</h3>
-                </div>
-                
-                <p className="text-gray-600 mb-6">{plan.description}</p>
-                
-                <div className="mb-8">
-                  <div className="flex items-baseline space-x-1">
-                    <span className={`text-4xl font-bold ${plan.popular ? 'text-blue-600' : 'text-gray-900'}`}>
-                      {plan.price}
-                    </span>
-                    <span className="text-gray-500">{plan.period}</span>
-                  </div>
-                </div>
-                
-                <ul className="space-y-4 mb-8">
-                  {plan.features.map((feature, featureIndex) => (
-                    <li key={featureIndex} className="flex items-start space-x-3">
-                      <Check className="h-5 w-5 text-green-500 mt-0.5 flex-shrink-0" />
-                      <span className="text-gray-700">{feature}</span>
-                    </li>
-                  ))}
-                </ul>
-                
-                <a
-                  href="/book-demo"
-                  className={`w-full block py-3 px-6 rounded-lg font-semibold text-center transition-all duration-200 ${
-                    plan.popular
-                      ? 'bg-blue-600 text-white hover:bg-blue-700 transform hover:scale-105'
-                      : 'bg-gray-100 text-gray-900 hover:bg-gray-200'
-                  }`}
-                >
-                  Book a Demo
-                </a>
-              </div>
-            </div>
-          ))}
-        </div>
-
-        {/* Features Comparison */}
-        <div className="bg-gray-50 rounded-2xl p-8 mb-16">
-          <h2 className="text-3xl font-bold text-gray-900 text-center mb-8">What's Included</h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div className="text-center">
-              <Shield className="h-12 w-12 text-blue-600 mx-auto mb-4" />
-              <h3 className="text-xl font-semibold text-gray-900 mb-3">Enterprise Security</h3>
-              <p className="text-gray-600">GDPR compliant, SOC 2 certified, and bank-level security for all your data.</p>
-            </div>
-            <div className="text-center">
-              <Phone className="h-12 w-12 text-green-600 mx-auto mb-4" />
-              <h3 className="text-xl font-semibold text-gray-900 mb-3">24/7 Support</h3>
-              <p className="text-gray-600">Round-the-clock support from our team of AI marketing specialists.</p>
-            </div>
-            <div className="text-center">
-              <Zap className="h-12 w-12 text-orange-600 mx-auto mb-4" />
-              <h3 className="text-xl font-semibold text-gray-900 mb-3">Instant Setup</h3>
-              <p className="text-gray-600">Get up and running in minutes with our automated onboarding process.</p>
-            </div>
+        <div className="bg-gradient-to-r from-fuchsia-500 via-violet-600 to-cyan-400 text-white rounded-2xl shadow-lg p-8 flex flex-col items-center mb-8 animate-fade-in-up">
+          <div className="text-2xl md:text-4xl font-bold">Your Monthly Price</div>
+          <div className="mt-2 text-4xl md:text-6xl font-mono tracking-tight bg-white bg-clip-text text-transparent bg-gradient-to-r from-cyan-200 via-rose-200 to-fuchsia-100">
+            {formatCurrency(fee, currency.symbol, currency.code)} <span className="text-lg">/month</span>
           </div>
+          <div className="mt-2 text-lg font-medium opacity-80">≈ {showApprox.text} per month</div>
         </div>
-
-        {/* FAQ Section */}
-        <div className="text-center mb-16">
-          <h2 className="text-3xl font-bold text-gray-900 mb-8">Frequently Asked Questions</h2>
-          <div className="max-w-3xl mx-auto space-y-6">
-            <div className="bg-white rounded-lg p-6 shadow-sm border border-gray-200">
-              <h3 className="text-lg font-semibold text-gray-900 mb-3">How quickly can I see results?</h3>
-              <p className="text-gray-600">Most clients see improvements in campaign performance within 7-14 days of setup.</p>
-            </div>
-            <div className="bg-white rounded-lg p-6 shadow-sm border border-gray-200">
-              <h3 className="text-lg font-semibold text-gray-900 mb-3">Can I change plans anytime?</h3>
-              <p className="text-gray-600">Yes, you can upgrade or downgrade your plan at any time. Changes take effect on your next billing cycle.</p>
-            </div>
-            <div className="bg-white rounded-lg p-6 shadow-sm border border-gray-200">
-              <h3 className="text-lg font-semibold text-gray-900 mb-3">What if I need custom integrations?</h3>
-              <p className="text-gray-600">Our Enterprise plan includes custom integrations. For other plans, custom work is available for an additional fee.</p>
-            </div>
-          </div>
-        </div>
-
-        {/* CTA Section */}
-        <div className="text-center bg-gradient-to-r from-blue-600 to-indigo-700 rounded-2xl p-12">
-          <h2 className="text-3xl font-bold text-white mb-4">Ready to Transform Your Marketing?</h2>
-          <p className="text-xl text-blue-100 mb-8">Join hundreds of businesses already using Flable.ai</p>
-          <button className="bg-white text-blue-600 px-8 py-4 rounded-lg text-lg font-semibold hover:bg-gray-50 transition-colors transform hover:scale-105 duration-200 shadow-lg">
-            Book a Demo
-          </button>
+        <p className="text-sm text-center text-gray-400 dark:text-gray-100 mb-4">*Quotes are instant, no hidden charges. All prices exclusive of taxes. Upgrade, downgrade, or cancel any time.</p>
+        <div className="flex justify-center">
+          <a href="/book-demo" className="btn-neo px-8 py-4 text-lg font-bold rounded-full shadow-lg border-2 border-transparent bg-gradient-to-r from-fuchsia-500 via-violet-600 to-cyan-400 text-white transition-all hover:scale-105 hover:shadow-2xl hover:border-violet-300">
+            Hire Your AI CMO
+          </a>
         </div>
       </div>
     </div>

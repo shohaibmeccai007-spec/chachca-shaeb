@@ -25,12 +25,9 @@ const HeroSection = () => (
               </p>
           
             <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
-              <button className="btn-neo cursor-hover text-lg px-8 py-4">
+              <a href="/book-demo" className="btn-neo cursor-hover text-lg px-8 py-4">
                 Hire Your AI CMO
-              </button>
-              <button className="px-8 py-4 rounded-2xl font-semibold text-indigo-600 border-2 border-indigo-200 hover:border-indigo-300 hover:bg-indigo-50 transition-all duration-300 cursor-hover text-lg">
-                Meet Your AI CMO
-              </button>
+              </a>
             </div>
           
             <div className="mt-12 flex items-center justify-center gap-8 text-sm text-gray-500">

@@ -46,8 +46,8 @@ const AIChat = () => {
     setIsLoading(true);
 
     try {
-      // Using Gemini API (free tier)
-      const response = await fetch('/api/ai-chat', {
+      // Using Gemini API through our backend
+      const response = await fetch('http://localhost:3002/api/ai-chat', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -60,21 +60,26 @@ const AIChat = () => {
 
       if (response.ok) {
         const data = await response.json();
-        const aiMessage: Message = {
-          id: (Date.now() + 1).toString(),
-          text: data.response,
-          isUser: false,
-          timestamp: new Date()
-        };
-        setMessages(prev => [...prev, aiMessage]);
+        if (data.success) {
+          const aiMessage: Message = {
+            id: (Date.now() + 1).toString(),
+            text: data.response,
+            isUser: false,
+            timestamp: new Date()
+          };
+          setMessages(prev => [...prev, aiMessage]);
+        } else {
+          throw new Error(data.message || 'Failed to get AI response');
+        }
       } else {
-        throw new Error('Failed to get AI response');
+        const errorData = await response.json().catch(() => ({}));
+        throw new Error(errorData.message || `Server error: ${response.status}`);
       }
     } catch (error) {
       console.error('AI Chat error:', error);
       const errorMessage: Message = {
         id: (Date.now() + 1).toString(),
-        text: "I'm having trouble connecting right now. Please try again in a moment, or feel free to book a demo to speak with our team directly!",
+        text: "I'm experiencing some technical difficulties right now. As your AI CMO, I'd recommend focusing on your core marketing metrics and testing different approaches. Feel free to book a demo to discuss your specific marketing challenges with our team!",
         isUser: false,
         timestamp: new Date()
       };
