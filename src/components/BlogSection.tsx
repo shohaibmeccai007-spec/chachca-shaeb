@@ -69,19 +69,19 @@ const BlogSection = () => {
   }, []);
 
   return (
-    <section className="py-32 bg-gradient-to-br from-purple-50 via-white to-cyan-50 relative overflow-hidden">
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-violet-100/20 via-transparent to-transparent"></div>
+    <section className="py-32 bg-gradient-to-br from-fuchsia-50 via-white to-cyan-50 relative overflow-hidden">
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-fuchsia-100/20 via-transparent to-transparent"></div>
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Header */}
         <ScrollReveal>
           <div className="text-center mb-20">
-            <div className="inline-flex items-center gap-2 bg-white/80 backdrop-blur-sm border border-violet-200 rounded-full px-6 py-3 mb-8">
-              <BookOpen className="h-5 w-5 text-violet-600" />
+            <div className="inline-flex items-center gap-2 bg-white/80 backdrop-blur-sm border border-fuchsia-200 rounded-full px-6 py-3 mb-8">
+              <BookOpen className="h-5 w-5 text-fuchsia-600" />
               <span className="text-sm font-medium text-gray-700">Latest Insights</span>
             </div>
             <h2 className="text-6xl md:text-7xl font-bold text-gray-900 mb-6">
-              <span className="brand-text">AI Marketing Insights</span>
+              <span className="bg-gradient-to-r from-fuchsia-500 via-violet-500 to-cyan-400 bg-clip-text text-transparent">AI Marketing Insights</span>
             </h2>
             <p className="text-2xl text-gray-600 max-w-4xl mx-auto leading-relaxed">
               Stay ahead with the latest trends, case studies, and strategies from the Flable AI community
@@ -92,7 +92,7 @@ const BlogSection = () => {
         {/* Blog Posts Grid */}
         {loading ? (
           <div className="flex justify-center items-center py-20">
-            <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-violet-600"></div>
+            <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-fuchsia-600"></div>
           </div>
         ) : (
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-16">
@@ -116,7 +116,7 @@ const BlogSection = () => {
                   </div>
                   
                   <div className="p-6">
-                    <h3 className="text-lg font-bold text-gray-900 mb-3 leading-tight group-hover:text-violet-600 transition-colors">
+                    <h3 className="text-lg font-bold text-gray-900 mb-3 leading-tight group-hover:text-fuchsia-600 transition-colors">
                       {post.title}
                     </h3>
                     
@@ -141,7 +141,7 @@ const BlogSection = () => {
                         href={post.url}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="inline-flex items-center text-violet-600 hover:text-violet-700 font-medium text-sm transition-colors"
+                        className="inline-flex items-center text-fuchsia-600 hover:text-fuchsia-700 font-medium text-sm transition-colors"
                       >
                         Read on LinkedIn
                         <ArrowRight className="ml-1 h-3 w-3" />
@@ -159,7 +159,7 @@ const BlogSection = () => {
           <div className="text-center">
             <div className="glass-card rounded-3xl p-12">
               <h3 className="text-4xl font-bold text-gray-900 mb-4">
-                <span className="brand-text">Follow Our Journey</span>
+                <span className="bg-gradient-to-r from-fuchsia-500 via-violet-500 to-cyan-400 bg-clip-text text-transparent">Follow Our Journey</span>
               </h3>
               <p className="text-xl text-gray-600 mb-8 max-w-2xl mx-auto">
                 Get the latest insights, case studies, and AI marketing strategies delivered to your LinkedIn feed
