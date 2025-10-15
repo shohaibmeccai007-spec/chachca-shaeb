@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { ChevronDown, ChevronUp, HelpCircle, Shield, Settings, Users, Zap } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 const FAQPage = () => {
   const [openFAQ, setOpenFAQ] = useState<number | null>(null);
@@ -143,12 +144,9 @@ const FAQPage = () => {
             Our team is here to help you get the most out of Flable.ai
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <button className="bg-white text-blue-600 px-6 py-3 rounded-lg font-semibold hover:bg-gray-50 transition-colors">
-              Contact Support
-            </button>
-            <button className="border-2 border-white text-white px-6 py-3 rounded-lg font-semibold hover:bg-white hover:text-blue-600 transition-colors">
-              Book a Demo
-            </button>
+            <Link to="/book-demo" className="border-2 border-white text-white px-6 py-3 rounded-lg font-semibold hover:bg-white hover:text-blue-600 transition-colors">
+              Write us
+            </Link>
           </div>
         </div>
       </div>

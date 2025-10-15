@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 const blogs = [
   {
     slug: "grain-n-grace",
-    title: "Case Study: Grain n Grace + Flable AI",
+    title: "Case Study: Grain n Grace",
     date: "2025-10-15",
     excerpt:
       "Grain n Grace faced delays from their agency in campaign optimization. With Flable AI, they could analyze campaigns in minutes and improve ROI.",
@@ -13,7 +13,7 @@ const blogs = [
   },
   {
     slug: "edureka",
-    title: "Case Study: Edureka",
+    title: "Case Study: edureka",
     date: "2025-10-10",
     excerpt:
       "Edureka launched underperforming campaigns in India and USA. Flable AI provided actionable insights to optimize performance and lead quality.",
@@ -35,11 +35,11 @@ const BlogPage: React.FC = () => {
     <main className="min-h-screen bg-white py-16 px-6">
       {/* Header */}
       <header className="text-center mb-12">
-        <h1 className="text-5xl font-extrabold bg-clip-text text-transparent bg-gradient-to-r from-fuchsia-500 via-violet-500 to-cyan-400">
-          Flable AI Insights
+        <h1 className="mb-5 text-5xl font-extrabold bg-clip-text py-4 text-transparent bg-gradient-to-r from-fuchsia-500 via-violet-500 to-cyan-400">
+          Blogs & Case Studies
         </h1>
         <p className="text-lg text-gray-700 mt-2">
-          Curated stories where AI rewrites the rules of marketing.
+          Real stories where Flable AI changed the rules of marketing.
         </p>
       </header>
 
@@ -78,17 +78,6 @@ const BlogPage: React.FC = () => {
             key={blog.slug}
             className="rounded-2xl border border-gray-200 shadow-lg overflow-hidden hover:shadow-2xl transition-transform hover:scale-105 group"
           >
-            {blog.image && (
-              <div className="relative h-56 w-full overflow-hidden">
-                <img
-                  src={blog.image}
-                  alt={blog.title}
-                  className="w-full h-full object-contain object-center transition-all group-hover:scale-105 group-hover:brightness-110"
-                />
-                {/* Optional gradient overlay */}
-                <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent"></div>
-              </div>
-            )}
             <div className="p-6 flex flex-col h-full">
               <h2 className="text-2xl font-bold mb-2">{blog.title}</h2>
               <span className="text-xs text-gray-500 mb-2">
@@ -105,12 +94,14 @@ const BlogPage: React.FC = () => {
                   </span>
                 ))}
               </div>
-              <Link
-                to={`/blog/${blog.slug}`}
-                className="text-cyan-600"
-              >
-                Read More »
-              </Link>
+              <div className="flex items-center justify-between">
+                <Link to={`/blog/${blog.slug}`} className="text-cyan-600">
+                  Read More »
+                </Link>
+                {blog.image && (
+                  <img src={blog.image} alt={blog.title} className="w-16" />
+                )}
+              </div>
             </div>
           </Link>
         ))}

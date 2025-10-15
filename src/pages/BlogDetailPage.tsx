@@ -4,7 +4,7 @@ import { useParams, Link } from "react-router-dom";
 const blogs = [
   {
     slug: "grain-n-grace",
-    title: "Case Study: Grain n Grace + Flable AI",
+    title: "Case Study: Grain n Grace",
     date: "2025-10-15",
     content: [
       {
@@ -32,11 +32,15 @@ take control of their campaigns. By combining deep diagnostic analysis with acti
 guidance, they could maximize performance and collaborate more effectively with their
 agency`,
       },
+      {
+        heading: "Testimonial",
+        body: `"Working with our agency used to mean waiting hours or even days for vague explanations on why campaigns weren’t performing. With Flable AI, I can analyze and make decisions in 10–15 minutes, guiding our agency to fix issues immediately. It’s transformed how we optimize campaigns and take control of results." — Luqman, Digital Marketing Specialist, Grain n Grace`,
+      },
     ],
   },
   {
     slug: "edureka",
-    title: "Case Study: Edureka",
+    title: "Case Study: edureka",
     date: "2025-10-10",
     content: [
       {
@@ -61,10 +65,8 @@ recommendations for improvements.`,
 • Identified opportunities for cross-sell`,
       },
       {
-        heading: "Quote",
-        body: `"Using Flable AI, my team was able to analyze underperforming campaigns, implement
-recommendations, and continue optimizing campaigns to improve lead quality and overall
-performance." — Sanjay, Edureka`,
+        heading: "Testimonial",
+        body: `"We launched a campaign that was underperforming in the India and USA region. My team and I used Flable AI to analyze the situation, identify the issues, and receive recommendations for improvements. Since implementing these recommendations, we have continued using the platform to optimize our campaigns and improve lead quality." — Sanjay, Digital Marketing Manager, edureka`,
       },
     ],
   },
@@ -74,6 +76,25 @@ const BlogDetail: React.FC = () => {
   const { slug } = useParams();
   console.log("TCL: BlogDetail:React.FC -> slug", slug);
   const blog = blogs.find((b) => b.slug === slug);
+
+  // Function to render testimonial with bold author name
+  const renderTestimonialContent = (content: string) => {
+    // Check if this is a testimonial (contains quotes and author attribution)
+    if (content.includes('"') && content.includes("—")) {
+      const parts = content.split("—");
+      if (parts.length === 2) {
+        const quote = parts[0].trim();
+        const attribution = parts[1].trim();
+
+        return (
+          <>
+            {quote} — <strong>{attribution}</strong>
+          </>
+        );
+      }
+    }
+    return content;
+  };
 
   if (!blog) return <div className="text-center py-20">Blog not found.</div>;
 
@@ -93,7 +114,11 @@ const BlogDetail: React.FC = () => {
       {blog.content.map((section, idx) => (
         <div key={idx} className="mb-8">
           <h2 className="text-2xl font-semibold mb-2">{section.heading}</h2>
-          <p className="text-gray-700 whitespace-pre-line">{section.body}</p>
+          <p className="text-gray-700 whitespace-pre-line">
+            {section.heading.toLowerCase() === "testimonial"
+              ? renderTestimonialContent(section.body)
+              : section.body}
+          </p>
         </div>
       ))}
     </main>
