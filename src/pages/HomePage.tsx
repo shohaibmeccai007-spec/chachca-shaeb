@@ -36,7 +36,7 @@ const ProblemSolutionSection = () => (
             picture.
           </p>
           <p className=" text-gray-600 font-medium text-center max-w-3xl mb-2">
-            Flable brings your marketing, sales, CRM, Commerce and logistics
+            Flable brings your marketing, sales, CRM, commerce and logistics
             data together to drive actions that lift CAC, ROAS, ROI, LTV and
             Profitability —not just CPC's & CTR's
           </p>
@@ -122,7 +122,7 @@ const ProblemSolutionSection = () => (
       <div className="flex flex-col items-center pt-6">
         <Link
           to="/book-demo"
-          className="inline-flex items-center px-7 py-4 bg-gradient-to-r from-fuchsia-500 via-violet-500 to-cyan-400 rounded-full text-lg font-extrabold text-white shadow-xl hover:scale-[1.04] transition-all"
+          className="inline-flex items-center px-7 py-4 btn-neo rounded-full text-lg font-extrabold text-white shadow-xl hover:scale-[1.04] transition-all"
         >
           Start running profit-first marketing in 7 days
           <ArrowRight className="ml-3 w-6 h-6" />
@@ -133,36 +133,35 @@ const ProblemSolutionSection = () => (
 );
 
 const CustomerTestimonialsSection = () => {
-const testimonials = [
-  {
-    id: 1,
-    company: "Edureka",
-    name: "Sanjay",
-    role: "Digital Marketing Manager",
-    testimonial: `We launched a campaign that was underperforming in the India and USA region. My team and I used Flable AI to analyze the situation, identify the issues, and receive recommendations for improvements. Since implementing these recommendations, we have continued using the platform to optimize our campaigns and improve lead quality.`,
-    rating: 5,
-    color: "from-fuchsia-500 to-cyan-400",
-  },
-  {
-    id: 2,
-    company: "MYOP",
-    name: "Afroze",
-    role: "E-commerce Manager",
-    testimonial: `Using Flable AI, we can precisely track attribution and optimize campaigns in real-time. This has allowed us to maximize ROI while collaborating effectively with our agency under a revenue-sharing model.`,
-    rating: 5,
-    color: "from-cyan-400 to-violet-500",
-  },
-  {
-    id: 3,
-    company: "Grain n Grace",
-    name: "Luqman",
-    role: "Digital Marketing Specialist",
-    testimonial: `Working with our agency used to mean waiting hours or even days for vague explanations on why campaigns weren’t performing. With Flable AI, I can analyze and make decisions in 10–15 minutes, guiding our agency to fix issues immediately. It’s transformed how we optimize campaigns and take control of results.`,
-    rating: 5,
-    color: "from-violet-500 to-fuchsia-500",
-  },
-];
-
+  const testimonials = [
+    {
+      id: 1,
+      company: "Edureka",
+      name: "Sanjay",
+      role: "Digital Marketing Manager",
+      testimonial: `We launched a campaign that was underperforming in the India and USA region. My team and I used Flable AI to analyze the situation, identify the issues, and receive recommendations for improvements. Since implementing these recommendations, we have continued using the platform to optimize our campaigns and improve lead quality.`,
+      rating: 5,
+      color: "from-fuchsia-500 to-cyan-400",
+    },
+    {
+      id: 2,
+      company: "MYOP",
+      name: "Afroze",
+      role: "E-commerce Manager",
+      testimonial: `Using Flable AI, we can precisely track attribution and optimize campaigns in real-time. This has allowed us to maximize ROI while collaborating effectively with our agency under a revenue-sharing model.`,
+      rating: 5,
+      color: "from-cyan-400 to-violet-500",
+    },
+    {
+      id: 3,
+      company: "Grain n Grace",
+      name: "Luqman",
+      role: "Digital Marketing Specialist",
+      testimonial: `Working with our agency used to mean waiting hours or even days for vague explanations on why campaigns weren’t performing. With Flable AI, I can analyze and make decisions in 10–15 minutes, guiding our agency to fix issues immediately. It’s transformed how we optimize campaigns and take control of results.`,
+      rating: 5,
+      color: "from-violet-500 to-fuchsia-500",
+    },
+  ];
 
   return (
     <section className="py-24 bg-gradient-to-br from-fuchsia-50 via-cyan-50 to-violet-50 relative overflow-hidden">
@@ -265,7 +264,7 @@ const testimonials = [
               </p>
               <Link
                 to="/book-demo"
-                className="inline-flex items-center px-8 py-4 bg-gradient-to-r from-fuchsia-500 via-cyan-400 to-violet-500 rounded-full text-white font-bold text-lg shadow-xl hover:scale-105 transition-all duration-300"
+                className="inline-flex items-center px-8 py-4 btn-neo rounded-full text-lg font-bold text-white shadow-xl hover:scale-105 transition-all duration-300"
               >
                 Start Your Success Story
                 <ArrowRight className="ml-3 w-6 h-6" />

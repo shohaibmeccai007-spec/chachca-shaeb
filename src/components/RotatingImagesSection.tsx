@@ -41,7 +41,7 @@ const RotatingImagesSection = () => {
           <div className="text-center mb-16">
         
             <h2 className="text-5xl md:text-6xl font-bold text-gray-900 mb-6">
-              <span className="bg-gradient-to-r from-fuchsia-500 via-violet-500 to-cyan-400 bg-clip-text text-transparent">
+              <span className="bg-gradient-to-r from-cyan-500 to-blue-500to-cyan-400 bg-clip-text text-transparent">
                 See Flable AI in Action
               </span>
             </h2>

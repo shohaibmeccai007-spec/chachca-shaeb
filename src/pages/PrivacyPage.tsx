@@ -42,7 +42,7 @@ const PrivacyPage = () => {
             <strong>Office Address:</strong> Flat no. D-5/102, Bramha Suncity,
             Pune, 411014, India.
             <br />
-            <strong>Email address:</strong> info@flable.ai
+            <strong>Email address:</strong> sales@flable.ai
             <br />
             <strong>Phone Number:</strong> +91 7769975889
           </p>
