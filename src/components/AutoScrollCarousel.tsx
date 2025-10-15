@@ -92,7 +92,7 @@ const AutoScrollCarousel = () => {
               </span>
             </h2>
             <p className="text-2xl text-gray-600 max-w-4xl mx-auto leading-relaxed font-light">
-              Join the growing community of forward-thinking companies that have
+              Join the growing community of D2C companies that have
               transformed their marketing operations with Flable AI
             </p>
           </div>
