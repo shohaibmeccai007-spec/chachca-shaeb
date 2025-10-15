@@ -90,11 +90,23 @@ const Header = () => {
               ))}
               <Link
                 to="/book-demo"
-                className="block bg-blue-600 text-white px-3 py-2 rounded-lg font-semibold hover:bg-blue-700 transition-colors mt-4"
+                className="block btn-neo text-white px-3 py-2 rounded-lg font-semibold hover:bg-blue-700 transition-colors mt-4"
                 onClick={() => setIsMenuOpen(false)}
               >
                 Book a Demo
               </Link>
+              <div className="flex items-center w-full justify-center gap-2 pt-5">
+                <img
+                  src="/assets/GDPR.png"
+                  alt="GDP Certified"
+                  className="h-16 w-auto object-contain"
+                />
+                <img
+                  src="/assets/soc22.png"
+                  alt="SOC2 Compliant"
+                  className="h-16 w-auto object-contain"
+                />
+              </div>
             </div>
           </div>
         )}

@@ -32,8 +32,8 @@ const CancellationPage = () => {
 
           <p className="policy-text text-para para2">
             To cancel, email{" "}
-            <a href="mailto:info@flable.ai" className="policy-link text-bu">
-              info@flable.ai
+            <a href="mailto:sales@flable.ai" className="policy-link text-bu">
+              sales@flable.ai
             </a>{" "}
             with:
           </p>
@@ -81,8 +81,8 @@ const CancellationPage = () => {
           </h2>
           <p className="policy-text text-para para2">
             To request a refund, email{" "}
-            <a href="mailto:info@flable.ai" className="policy-link text-bu">
-              info@flable.ai
+            <a href="mailto:sales@flable.ai" className="policy-link text-bu">
+              sales@flable.ai
             </a>{" "}
             with:
           </p>
@@ -111,8 +111,8 @@ const CancellationPage = () => {
 
           <p className="policy-text text-para para2">
             For any questions, reach out to{" "}
-            <a href="mailto:info@flable.ai" className="policy-link text-bu">
-              info@flable.ai
+            <a href="mailto:sales@flable.ai" className="policy-link text-bu">
+              sales@flable.ai
             </a>
           </p>
         </div>

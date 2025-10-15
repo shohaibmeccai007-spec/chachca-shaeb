@@ -9,7 +9,7 @@ const AutoScrollCarousel = () => {
     {
       name: "Edureka",
       logo: "/assets/clients/edureka.png",
-      industry: "Education",
+      industry: "Ed-Tech",
     },
     { name: "MYOP", logo: "/assets/clients/myop.png", industry: "Perfume & Fragrance" },
     {

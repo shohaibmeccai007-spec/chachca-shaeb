@@ -1,6 +1,6 @@
-import { Link } from 'react-router-dom';
-import RotatingImagesSection from './RotatingImagesSection';
-import ScrollReveal from './ScrollReveal';
+import { Link } from "react-router-dom";
+import RotatingImagesSection from "./RotatingImagesSection";
+import ScrollReveal from "./ScrollReveal";
 
 const HeroSection = () => (
   <section className="py-20 px-4 text-center relative overflow-hidden">
@@ -11,19 +11,33 @@ const HeroSection = () => (
         <div className="flex flex-col items-center justify-center mb-8 z-50">
           <div className="inline-flex items-center gap-2 bg-white/80 backdrop-blur-sm border border-fuchsia-200 rounded-full px-6 py-3 mb-8">
             <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
-            <span className="text-sm font-medium text-gray-700">AI CMO Active</span>
+            <span className="text-sm font-medium text-gray-700">
+              AI CMO Active
+            </span>
           </div>
           <h1 className="text-5xl md:text-7xl font-extrabold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-fuchsia-500 via-violet-500 to-cyan-400 drop-shadow-lg text-center">AI CMO for D2C Brands</h1>
-          <p className="text-xl md:text-2xl text-gray-700 max-w-2xl leading-relaxed mb-6 font-light text-center">
-            A profit-first AI CMO for D2C brands that diagnoses performance and improves campaign profitability across Meta Ads and Google Ads.
+          <p className="text-xl text-gray-700 max-w-2xl leading-relaxed mb-6 font-light text-center">
+            A profit-first AI CMO that Unifies ad, Commerce, CRM, Finance, and Logistics data to uncover growth opportunities and boost profitability across Meta and Google Ads.
           </p>
-            {/* Hire CTA Button */}
+          {/* Hire CTA Button */}
           <Link
             to="/book-demo"
-            className="inline-flex items-center justify-center px-10 py-5 bg-gradient-to-r from-fuchsia-500 via-violet-500 to-cyan-400 rounded-full text-white font-bold text-xl shadow-2xl hover:scale-105 transition-all duration-300 mb-8"
+            className="inline-flex items-center justify-center px-10 py-5 btn-neo rounded-full text-white font-bold text-xl shadow-2xl hover:scale-105 transition-all duration-300 mb-8"
           >
             Hire Your AI CMO
-            <svg className="ml-3 w-6 h-6" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
+            <svg
+              className="ml-3 w-6 h-6"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2"
+              viewBox="0 0 24 24"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                d="M17 8l4 4m0 0l-4 4m4-4H3"
+              />
+            </svg>
           </Link>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-6 text-sm text-gray-500 mb-8">
             <div className="flex items-center gap-2">
@@ -44,8 +58,8 @@ const HeroSection = () => (
             </div>
           </div>
         </div>
-              {/* Rotating Images Section */}
-      <RotatingImagesSection />
+        {/* Rotating Images Section */}
+        <RotatingImagesSection />
       </ScrollReveal>
     </div>
   </section>

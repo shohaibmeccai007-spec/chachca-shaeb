@@ -35,7 +35,7 @@ const BlogPage: React.FC = () => {
     <main className="min-h-screen bg-white py-16 px-6">
       {/* Header */}
       <header className="text-center mb-12">
-        <h1 className="mb-5 text-5xl font-extrabold bg-clip-text py-4 text-transparent bg-gradient-to-r from-fuchsia-500 via-violet-500 to-cyan-400">
+        <h1 className="mb-5 text-5xl font-extrabold bg-clip-text py-4 text-transparent bg-gradient-to-r from-cyan-500 to-blue-500to-cyan-400">
           Blogs & Case Studies
         </h1>
         <p className="text-lg text-gray-700 mt-2">
@@ -49,7 +49,7 @@ const BlogPage: React.FC = () => {
           onClick={() => setSelectedTag(null)}
           className={`px-4 py-2 rounded-full font-semibold border ${
             !selectedTag
-              ? "bg-gradient-to-r from-fuchsia-500 via-violet-500 to-cyan-400 text-white"
+              ? "bg-gradient-to-r from-cyan-500 to-blue-500to-cyan-400 text-white"
               : "bg-white text-gray-700"
           }`}
         >
@@ -61,7 +61,7 @@ const BlogPage: React.FC = () => {
             onClick={() => setSelectedTag(tag)}
             className={`px-4 py-2 rounded-full font-semibold border ${
               selectedTag === tag
-                ? "bg-gradient-to-r from-fuchsia-500 via-violet-500 to-cyan-400 text-white"
+                ? "bg-gradient-to-r from-cyan-500 to-blue-500to-cyan-400 text-white"
                 : "bg-white text-gray-700"
             }`}
           >

@@ -163,7 +163,7 @@ const TermsPage = () => {
             We process your personal data in connection with processing in
             accordance with our Privacy policy Your attention is specifically
             drawn to the Privacy Statement section. You can also contact us
-            @info@flable.ai.com
+            @sales@flable.ai.com
           </p>
           <h3 className="text-head text-xl font-bold">
             4. General Use Restriction
@@ -480,7 +480,7 @@ const TermsPage = () => {
             You can cancel your membership at any time by logging into your
             account. Your cancellation will take effect at the conclusion of the
             current paid term. In case you’re unsatisfied with our services,
-            kindly mail us at info@flable.ai or call us at 7769975889.
+            kindly mail us at sales@flable.ai or call us at 7769975889.
           </p>
           <h3 className="text-head text-xl font-bold">14. Program</h3>
           <p className="text-para para2">
@@ -584,7 +584,7 @@ const TermsPage = () => {
           <p className="text-para para2">
             {/* Office Address: Flat no. D-5/102, Bramha Suncity, Pune, India.
             <br /> */}
-            Email: info@flable.ai
+            Email: sales@flable.ai
             <br />
             Phone: +4915145521776
           </p>

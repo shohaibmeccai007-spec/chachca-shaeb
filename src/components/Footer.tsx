@@ -26,7 +26,7 @@ const Footer = () => {
             <div className="space-y-2">
               <div className="flex items-center space-x-3">
                 <Mail className="h-5 w-5 text-gray-400" />
-                <span className="text-gray-900">info@flable.ai</span>
+                <span className="text-gray-900">sales@flable.ai</span>
               </div>
               <div className="flex items-center space-x-3">
                 <Phone className="h-5 w-5 text-gray-400" />
@@ -116,6 +116,20 @@ const Footer = () => {
                   Data Deletion Guidelines
                 </Link>
               </li>
+              <li>
+                <div className="flex gap-2">
+                  <img
+                    src="/assets/GDPR.png"
+                    alt="GDP Certified"
+                    className="h-16 w-auto object-contain"
+                  />
+                  <img
+                    src="/assets/soc22.png"
+                    alt="SOC2 Compliant"
+                    className="h-16 w-auto object-contain"
+                  />
+                </div>
+              </li>
             </ul>
           </div>
         </div>
@@ -125,29 +139,29 @@ const Footer = () => {
             © 2024 Flable.ai. All rights reserved.
           </p>
 
-           <div className="sociallinks space-x-6 flex items-center justify-center">
-              <Link
-                to="https://www.linkedin.com/company/flable"
-                className="inline-flex items-center justify-center w-10 h-10 bg-gr2 text-bulg rounded-lg"
-                target="_blank"
-              >
-                <PiLinkedinLogo size={20} />
-              </Link>
-              <Link
-                to="https://x.com/Flableai"
-                className="inline-flex items-center justify-center w-10 h-10 bg-gr2 text-bulg rounded-lg"
-                target="_blank"
-              >
-                <RiTwitterXLine size={20} />
-              </Link>
-              <Link
-                to="https://www.instagram.com/flable_official"
-                className="inline-flex items-center justify-center w-10 h-10 bg-gr2 text-bulg rounded-lg"
-                target="_blank"
-              >
-                <PiInstagramLogo size={20} />
-              </Link>
-            </div>
+          <div className="sociallinks space-x-6 flex items-center justify-center">
+            <Link
+              to="https://www.linkedin.com/company/flable"
+              className="inline-flex items-center justify-center w-10 h-10 bg-gr2 text-bulg rounded-lg"
+              target="_blank"
+            >
+              <PiLinkedinLogo size={20} />
+            </Link>
+            <Link
+              to="https://x.com/Flableai"
+              className="inline-flex items-center justify-center w-10 h-10 bg-gr2 text-bulg rounded-lg"
+              target="_blank"
+            >
+              <RiTwitterXLine size={20} />
+            </Link>
+            <Link
+              to="https://www.instagram.com/flable_official"
+              className="inline-flex items-center justify-center w-10 h-10 bg-gr2 text-bulg rounded-lg"
+              target="_blank"
+            >
+              <PiInstagramLogo size={20} />
+            </Link>
+          </div>
         </div>
       </div>
     </footer>

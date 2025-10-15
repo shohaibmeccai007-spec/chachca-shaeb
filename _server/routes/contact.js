@@ -1,26 +1,26 @@
-const express = require('express');
+const express = require("express");
 const router = express.Router();
-const nodemailer = require('nodemailer');
+const nodemailer = require("nodemailer");
 
 // Email configuration
 const EMAIL_USER = process.env.EMAIL_USER;
 const EMAIL_PASS = process.env.EMAIL_PASS;
-const ADMIN_EMAIL = process.env.ADMIN_EMAIL || 'info@flable.ai';
+const ADMIN_EMAIL = process.env.ADMIN_EMAIL || "sales@flable.ai";
 
 // Send email notification
 const sendEmailNotification = async (contactData) => {
   if (!EMAIL_USER || !EMAIL_PASS) {
-    console.log('Email not configured. Skipping email notification.');
+    console.log("Email not configured. Skipping email notification.");
     return;
   }
 
   try {
     const transporter = nodemailer.createTransporter({
-      service: 'gmail',
+      service: "gmail",
       auth: {
         user: EMAIL_USER,
-        pass: EMAIL_PASS
-      }
+        pass: EMAIL_PASS,
+      },
     });
 
     const mailOptions = {
@@ -35,8 +35,12 @@ const sendEmailNotification = async (contactData) => {
             <h3 style="color: #374151; margin-top: 0;">Contact Information</h3>
             <p><strong>Name:</strong> ${contactData.name}</p>
             <p><strong>Email:</strong> ${contactData.email}</p>
-            <p><strong>Company:</strong> ${contactData.company || 'Not provided'}</p>
-            <p><strong>Phone:</strong> ${contactData.phone || 'Not provided'}</p>
+            <p><strong>Company:</strong> ${
+              contactData.company || "Not provided"
+            }</p>
+            <p><strong>Phone:</strong> ${
+              contactData.phone || "Not provided"
+            }</p>
           </div>
           
           <div style="background: #f8fafc; padding: 20px; border-radius: 8px; margin: 20px 0;">
@@ -45,21 +49,23 @@ const sendEmailNotification = async (contactData) => {
           </div>
           
           <p style="color: #6b7280; font-size: 14px;">
-            This message was submitted on ${new Date(contactData.timestamp).toLocaleString()}
+            This message was submitted on ${new Date(
+              contactData.timestamp
+            ).toLocaleString()}
           </p>
         </div>
-      `
+      `,
     };
 
     await transporter.sendMail(mailOptions);
-    console.log('Contact email notification sent successfully');
+    console.log("Contact email notification sent successfully");
   } catch (error) {
-    console.error('Error sending contact email notification:', error);
+    console.error("Error sending contact email notification:", error);
   }
 };
 
 // POST /api/contact - Submit contact form
-router.post('/', async (req, res) => {
+router.post("/", async (req, res) => {
   try {
     const contactData = req.body;
 
@@ -67,7 +73,7 @@ router.post('/', async (req, res) => {
     if (!contactData.name || !contactData.email || !contactData.message) {
       return res.status(400).json({
         success: false,
-        message: 'Missing required fields: name, email, message'
+        message: "Missing required fields: name, email, message",
       });
     }
 
@@ -77,25 +83,27 @@ router.post('/', async (req, res) => {
     }
 
     // Send email notification (async, don't wait)
-    sendEmailNotification(contactData).catch(error => {
-      console.error('Contact email notification error (non-blocking):', error);
+    sendEmailNotification(contactData).catch((error) => {
+      console.error("Contact email notification error (non-blocking):", error);
     });
 
     res.status(200).json({
       success: true,
-      message: 'Contact form submitted successfully',
+      message: "Contact form submitted successfully",
       data: {
         id: Date.now(),
-        timestamp: contactData.timestamp
-      }
+        timestamp: contactData.timestamp,
+      },
     });
-
   } catch (error) {
-    console.error('Contact submission error:', error);
+    console.error("Contact submission error:", error);
     res.status(500).json({
       success: false,
-      message: 'Internal server error',
-      error: process.env.NODE_ENV === 'development' ? error.message : 'Something went wrong'
+      message: "Internal server error",
+      error:
+        process.env.NODE_ENV === "development"
+          ? error.message
+          : "Something went wrong",
     });
   }
 });
