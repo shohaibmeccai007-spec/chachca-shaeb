@@ -1,13 +1,14 @@
+import { Link } from 'react-router-dom';
 import RotatingImagesSection from './RotatingImagesSection';
 import ScrollReveal from './ScrollReveal';
 
 const HeroSection = () => (
   <section className="py-20 px-4 text-center relative overflow-hidden">
     <div className="absolute inset-0 bg-gradient-to-br from-fuchsia-50 via-white to-cyan-50"></div>
-    <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-fuchsia-100/20 via-transparent to-transparent"></div>
+    <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-fuchsia-100/20 via-transparent to-transparent z-5"></div>
     <div className="relative z-10 max-w-7xl mx-auto">
       <ScrollReveal variant="slow">
-        <div className="flex flex-col items-center justify-center mb-8">
+        <div className="flex flex-col items-center justify-center mb-8 z-50">
           <div className="inline-flex items-center gap-2 bg-white/80 backdrop-blur-sm border border-fuchsia-200 rounded-full px-6 py-3 mb-8">
             <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
             <span className="text-sm font-medium text-gray-700">AI CMO Active</span>
@@ -17,13 +18,13 @@ const HeroSection = () => (
             A profit-first AI CMO for D2C brands that diagnoses performance and improves campaign profitability across Meta Ads and Google Ads.
           </p>
             {/* Hire CTA Button */}
-          <a
-            href="/book-demo"
+          <Link
+            to="/book-demo"
             className="inline-flex items-center justify-center px-10 py-5 bg-gradient-to-r from-fuchsia-500 via-violet-500 to-cyan-400 rounded-full text-white font-bold text-xl shadow-2xl hover:scale-105 transition-all duration-300 mb-8"
           >
             Hire Your AI CMO
             <svg className="ml-3 w-6 h-6" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
-          </a>
+          </Link>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-6 text-sm text-gray-500 mb-8">
             <div className="flex items-center gap-2">
               <div className="w-2 h-2 bg-green-500 rounded-full"></div>
