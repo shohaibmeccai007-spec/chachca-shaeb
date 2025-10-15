@@ -13,7 +13,7 @@ const BookingForm = () => {
     preferredTime: ''
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const [submitStatus, setSubmitStatus] = useState(null); // 'success', 'error', null
+  const [submitStatus, setSubmitStatus] = useState(''); // 'success', 'error', null
 
   const timeSlots = [
     '9:00 AM', '10:00 AM', '11:00 AM', '12:00 PM',
@@ -28,45 +28,57 @@ const BookingForm = () => {
     }));
   };
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
-    setSubmitStatus(null);
+    setSubmitStatus('');
 
     try {
-      const response = await fetch('http://localhost:3001/api/booking', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          ...formData,
-          timestamp: new Date().toISOString(),
-          source: 'website'
-        }),
-      });
+      // Prepare the data in the format expected by the API
+      const submissionData = {
+        name: formData.name,
+        email: formData.email,
+        companyName: formData.company,
+        contactNumber: formData.phone,
+        preferredDate: formData.preferredDate,
+        preferredTime: formData.preferredTime,
+        message: formData.message
+      };
+
+
+      const response = await fetch(
+        "https://devolveapi.flable.ai/v1/website/leademail",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(submissionData),
+        }
+      );
 
       if (response.ok) {
-        setSubmitStatus('success');
+        setSubmitStatus("success");
         setFormData({
-          name: '',
-          email: '',
-          company: '',
-          phone: '',
-          message: '',
-          preferredDate: '',
-          preferredTime: ''
+          name: "",
+          email: "",
+          company: "",
+          phone: "",
+          message: "",
+          preferredDate: "",
+          preferredTime: "",
         });
       } else {
-        throw new Error('Failed to submit booking');
+        throw new Error("Failed to submit booking");
       }
     } catch (error) {
-      console.error('Booking submission error:', error);
-      setSubmitStatus('error');
+      console.error("Booking submission error:", error);
+      setSubmitStatus("error");
     } finally {
       setIsSubmitting(false);
     }
   };
+
 
   return (
     <section className="py-32 bg-gradient-to-br from-pink-50 via-white to-violet-50 relative overflow-hidden">

@@ -3,9 +3,11 @@ import ScrollReveal from "./ScrollReveal";
 
 const RotatingImagesSection = () => {
   const images = [
-    "/assets/dashboard.png",
+    // "/assets/dashboard.png",
+    "/assets/dash.png",
     "/assets/ads-automation.png",
-    "/assets/agent.png",
+    "/assets/chat.png",
+    "/assets/alert.png",
   ];
 
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -24,21 +26,22 @@ const RotatingImagesSection = () => {
   };
 
   return (
-    <section className="py-20 bg-gradient-to-br from-white via-gray-50 to-fuchsia-50/30 relative overflow-hidden">
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-fuchsia-100/10 via-transparent to-cyan-100/10"></div>
+    <section>
+      {/* <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-fuchsia-100/10 via-transparent to-cyan-100/10"></div> */}
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
-        <ScrollReveal>
+        <div className="inline-flex items-center gap-2 bg-white/80 backdrop-blur-sm border border-fuchsia-200 rounded-full px-6 py-3 mb-8">
+          <div className="w-2 h-2 rounded-full bg-gradient-to-r from-fuchsia-500 to-cyan-400"></div>
+          <span className="text-sm font-medium text-gray-700">
+            Platform Overview
+          </span>
+        </div>
+        {/* <ScrollReveal>
           <div className="text-center mb-16">
-            <div className="inline-flex items-center gap-2 bg-white/80 backdrop-blur-sm border border-fuchsia-200 rounded-full px-6 py-3 mb-8">
-              <div className="w-2 h-2 rounded-full bg-gradient-to-r from-fuchsia-500 to-cyan-400"></div>
-              <span className="text-sm font-medium text-gray-700">
-                Platform Overview
-              </span>
-            </div>
+        
             <h2 className="text-5xl md:text-6xl font-bold text-gray-900 mb-6">
-              <span className="bg-gradient-to-r from-fuchsia-500 via-violet-500 to-cyan-400 bg-clip-text text-transparent">
+              <span className="bg-gradient-to-r from-cyan-500 to-blue-500to-cyan-400 bg-clip-text text-transparent">
                 See Flable AI in Action
               </span>
             </h2>
@@ -47,20 +50,20 @@ const RotatingImagesSection = () => {
               key features
             </p>
           </div>
-        </ScrollReveal>
+        </ScrollReveal> */}
 
         {/* Image Carousel */}
         <ScrollReveal variant="zoom">
           <div className="flex flex-col items-center">
             {/* Main Image Container */}
             <div className="relative mb-8">
-              <div className="relative w-80 h-80 sm:w-96 sm:h-96 md:w-[500px] md:h-[400px] lg:w-[600px] lg:h-[450px] mx-auto">
+              <div className="relative w-80 h-80 sm:w-96 sm:h-96 md:w-[500px] md:h-[400px] lg:w-[800px] lg:h-[450px] mx-auto">
                 <div className="absolute inset-0 bg-gradient-to-r from-fuchsia-500/20 via-violet-500/20 to-cyan-400/20 rounded-3xl blur-xl"></div>
                 <div className="relative z-10 w-full h-full bg-white rounded-3xl shadow-2xl border border-gray-200 overflow-hidden">
                   <img
                     src={images[currentIndex]}
                     alt={`Platform feature ${currentIndex + 1}`}
-                    className="w-full h-full object-cover transition-all duration-500 ease-in-out"
+                    className="w-full h-full object-contain transition-all duration-500 ease-in-out"
                   />
 
                   {/* Overlay with gradient */}
@@ -90,7 +93,7 @@ const RotatingImagesSection = () => {
             </div>
 
             {/* Feature Labels */}
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 w-full max-w-4xl">
+            {/* <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 w-full max-w-4xl">
               {[
                 {
                   title: "Smart Dashboard",
@@ -141,7 +144,7 @@ const RotatingImagesSection = () => {
                   <p className="text-gray-600 text-sm">{feature.description}</p>
                 </div>
               ))}
-            </div>
+            </div> */}
           </div>
         </ScrollReveal>
       </div>

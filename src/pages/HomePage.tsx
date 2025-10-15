@@ -16,7 +16,7 @@ import {
 } from "lucide-react";
 
 const ProblemSolutionSection = () => (
-  <section className="max-w-6xl mx-auto px-4 pt-24 pb-20">
+  <section className="max-w-6xl mx-auto px-4 py-16">
     {/* Problem */}
     <ScrollReveal variant="default">
       <div className="bg-gradient-to-r from-fuchsia-50 via-violet-50 to-cyan-50 rounded-2xl p-8 mb-14 flex flex-col items-center shadow-sm relative overflow-hidden border-l-8 border-fuchsia-400">
@@ -30,10 +30,15 @@ const ProblemSolutionSection = () => (
               The Real Problem
             </span>
           </div>
-          <p className="text-2xl md:text-3xl text-gray-900 font-semibold text-center max-w-3xl mb-2">
-            Marketing teams waste millions because data is scattered across 10+
-            platforms. You're making big decisions with incomplete information,
-            optimizing for clicks instead of profit.
+          <p className="text-xl md:text-2xl text-gray-900 font-semibold text-center max-w-3xl mb-2">
+            'Performance Marketing decisions still run on incomplete data. Every
+            channel tells a different story, and no one sees the full profit
+            picture.
+          </p>
+          <p className=" text-gray-600 font-medium text-center max-w-3xl mb-2">
+            Flable brings your marketing, sales, CRM, commerce and logistics
+            data together to drive actions that lift CAC, ROAS, ROI, LTV and
+            Profitability —not just CPC's & CTR's
           </p>
         </div>
       </div>
@@ -48,8 +53,12 @@ const ProblemSolutionSection = () => (
           </div>
           <div className="font-bold text-fuchsia-700 text-xl mb-1">Day 1</div>
           <div className="text-lg text-gray-800 mb-1">
-            Connect all data sources in minutes
+            All your data, finally in one place
           </div>
+          <p className="text-gray-600">
+            Connect Shopify, Meta, Google, and more — in minutes. Flable unifies
+            every data source into a single profit view.
+          </p>
         </div>
         {/* Step 2 */}
         <div className="flex-1 min-w-[220px] bg-white rounded-2xl p-6 text-center shadow-md border-t-8 border-violet-400">
@@ -58,8 +67,12 @@ const ProblemSolutionSection = () => (
           </div>
           <div className="font-bold text-violet-700 text-xl mb-1">Day 7</div>
           <div className="text-lg text-gray-800 mb-1">
-            AI builds your profit-first dashboard
+            Profit Intelligence Cockpit Ready
           </div>
+          <p className="text-gray-600">
+            Flable builds your profit-first dashboard with all impact KPIs and
+            diagnoses where money leaks.
+          </p>
         </div>
         {/* Step 3 */}
         <div className="flex-1 min-w-[220px] bg-white rounded-2xl p-6 text-center shadow-md border-t-8 border-cyan-400">
@@ -68,8 +81,12 @@ const ProblemSolutionSection = () => (
           </div>
           <div className="font-bold text-cyan-700 text-xl mb-1">Ongoing</div>
           <div className="text-lg text-gray-800 mb-1">
-            Autonomous optimization + clear ROI
+            March towards profitability{" "}
           </div>
+          <p className="text-gray-600">
+            Get instant insights on top products/SKUs, audiences, and channels —
+            plus performance strategies in seconds.
+          </p>
         </div>
       </div>
     </ScrollReveal>
@@ -82,9 +99,9 @@ const ProblemSolutionSection = () => (
             <X className="w-5 h-5" /> Before
           </div>
           <ul className="list-disc text-gray-700 pl-6 text-base space-y-1">
-            <li>Blind spending</li>
-            <li>Manual reports</li>
-            <li>Vanity metrics</li>
+            <li> Ad spend scattered across platforms</li>
+            <li>Endless Excel reports and manual analysis</li>
+            <li>Optimizing for clicks, not contribution margin</li>
           </ul>
         </div>
         {/* After Card */}
@@ -93,9 +110,9 @@ const ProblemSolutionSection = () => (
             <CheckCircle2 className="w-5 h-5" /> After
           </div>
           <ul className="list-disc text-gray-700 pl-6 text-base space-y-1">
-            <li>Profit clarity</li>
-            <li>Automated insights</li>
-            <li>Smart execution</li>
+            <li>Unified profit view across channels and stores</li>
+            <li>Automated reporting with intelligent insights</li>
+            <li>Optimizing every decision for ROI and profit</li>
           </ul>
         </div>
       </div>
@@ -105,7 +122,7 @@ const ProblemSolutionSection = () => (
       <div className="flex flex-col items-center pt-6">
         <Link
           to="/book-demo"
-          className="inline-flex items-center px-7 py-4 bg-gradient-to-r from-fuchsia-500 via-violet-500 to-cyan-400 rounded-full text-lg font-extrabold text-white shadow-xl hover:scale-[1.04] transition-all"
+          className="inline-flex items-center px-7 py-4 btn-neo rounded-full text-lg font-extrabold text-white shadow-xl hover:scale-[1.04] transition-all"
         >
           Start running profit-first marketing in 7 days
           <ArrowRight className="ml-3 w-6 h-6" />
@@ -122,8 +139,7 @@ const CustomerTestimonialsSection = () => {
       company: "Edureka",
       name: "Sanjay",
       role: "Digital Marketing Manager",
-      testimonial:
-        "Flable AI transformed our marketing operations completely. We saw a 120% increase in conversion rates within the first month. The AI CMO approach is revolutionary.",
+      testimonial: `We launched a campaign that was underperforming in the India and USA region. My team and I used Flable AI to analyze the situation, identify the issues, and receive recommendations for improvements. Since implementing these recommendations, we have continued using the platform to optimize our campaigns and improve lead quality.`,
       rating: 5,
       color: "from-fuchsia-500 to-cyan-400",
     },
@@ -132,8 +148,7 @@ const CustomerTestimonialsSection = () => {
       company: "MYOP",
       name: "Afroze",
       role: "E-commerce Manager",
-      testimonial:
-        "The autonomous optimization features saved us 20+ hours per week. Our ROAS improved by 340% and we're now scaling profitably across all channels.",
+      testimonial: `Using Flable AI, we can precisely track attribution and optimize campaigns in real-time. This has allowed us to maximize ROI while collaborating effectively with our agency under a revenue-sharing model.`,
       rating: 5,
       color: "from-cyan-400 to-violet-500",
     },
@@ -142,8 +157,7 @@ const CustomerTestimonialsSection = () => {
       company: "Grain n Grace",
       name: "Luqman",
       role: "Digital Marketing Specialist",
-      testimonial:
-        "Flable AI's profit-first approach changed everything. We finally have clarity on which campaigns actually drive revenue, not just vanity metrics.",
+      testimonial: `Working with our agency used to mean waiting hours or even days for vague explanations on why campaigns weren’t performing. With Flable AI, I can analyze and make decisions in 10–15 minutes, guiding our agency to fix issues immediately. It’s transformed how we optimize campaigns and take control of results.`,
       rating: 5,
       color: "from-violet-500 to-fuchsia-500",
     },
@@ -168,17 +182,16 @@ const CustomerTestimonialsSection = () => {
               </span>
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Real results from real businesses using Flable AI to transform
-              their marketing operations
+              Real results from real businesses using Flable AI
             </p>
           </div>
         </ScrollReveal>
 
         {/* Testimonials Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 ">
           {testimonials.map((testimonial) => (
             <ScrollReveal key={testimonial.id} variant="zoom">
-              <div className="bg-white/90 backdrop-blur-sm rounded-3xl p-8 shadow-xl border border-white/20 hover:shadow-2xl transition-all duration-300 hover:scale-105 relative overflow-hidden">
+              <div className="bg-white/90 backdrop-blur-sm rounded-3xl  p-8 shadow-xl border border-white/20 hover:shadow-2xl transition-all min-h-[600px] duration-300 hover:scale-105 relative overflow-hidden">
                 {/* Gradient Background */}
                 <div
                   className={`absolute inset-0 bg-gradient-to-br ${testimonial.color} opacity-5 rounded-3xl`}
@@ -242,7 +255,7 @@ const CustomerTestimonialsSection = () => {
             <div className="bg-white/80 backdrop-blur-sm rounded-3xl p-8 shadow-xl border border-white/20 max-w-2xl mx-auto">
               <h3 className="text-3xl font-bold text-gray-900 mb-4">
                 <span className="bg-gradient-to-r from-fuchsia-500 via-cyan-400 to-violet-500 bg-clip-text text-transparent">
-                  Ready to Join Them?
+                  Ready to Start?
                 </span>
               </h3>
               <p className="text-gray-600 mb-6 text-lg">
@@ -251,7 +264,7 @@ const CustomerTestimonialsSection = () => {
               </p>
               <Link
                 to="/book-demo"
-                className="inline-flex items-center px-8 py-4 bg-gradient-to-r from-fuchsia-500 via-cyan-400 to-violet-500 rounded-full text-white font-bold text-lg shadow-xl hover:scale-105 transition-all duration-300"
+                className="inline-flex items-center px-8 py-4 btn-neo rounded-full text-lg font-bold text-white shadow-xl hover:scale-105 transition-all duration-300"
               >
                 Start Your Success Story
                 <ArrowRight className="ml-3 w-6 h-6" />

@@ -10,9 +10,11 @@ import PricingPage from './pages/PricingPage';
 import FAQPage from './pages/FAQPage';
 import BlogPage from './pages/BlogPage';
 import BlogDetailPage from './pages/BlogDetailPage';
-import PrivacyPage from './pages/PrivacyPage';
 import TermsPage from './pages/TermsPage';
 import { Sun, Moon } from 'lucide-react';
+import PrivacyPage from './pages/PrivacyPage';
+import CancellationPage from './pages/CancellationPage';
+import DataDeletion from './pages/Datadeletion';
 
 function App() {
   const [darkMode, setDarkMode] = useState(() => {
@@ -55,7 +57,9 @@ function App() {
           <Route path="/blog" element={<BlogPage />} />
           <Route path="/blog/:slug" element={<BlogDetailPage />} />
           <Route path="/privacy" element={<PrivacyPage />} />
+          <Route path="/cancellation-refund-policy" element={<CancellationPage />} />
           <Route path="/terms" element={<TermsPage />} />
+          <Route path="/data-deletion" element={<DataDeletion />} />
         </Routes>
       </main>
       <Footer />

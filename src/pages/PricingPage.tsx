@@ -1,182 +1,479 @@
-import React, { useState } from 'react';
+import React, { useState } from "react";
+import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
 
-type CurrencyCode = 'USD' | 'EUR' | 'GBP' | 'INR' | 'AUD' | 'CAD' | 'AED';
+const PricingPage = () => {
+  const [region, setRegion] = useState<"IN" | "GLOBAL">("GLOBAL");
 
-const currencyData = [
-  { code: 'USD' as CurrencyCode, symbol: '$', name: 'US Dollar', rate: 85 },   // 1 USD = 85 INR
-  { code: 'EUR' as CurrencyCode, symbol: '€', name: 'Euro', rate: 90 },       // 1 EUR = 90 INR
-  { code: 'GBP' as CurrencyCode, symbol: '£', name: 'British Pound', rate: 105 },// 1 GBP = 105 INR
-  { code: 'INR' as CurrencyCode, symbol: '₹', name: 'Indian Rupee', rate: 1 },  // 1 INR = 1 INR
-  { code: 'AUD' as CurrencyCode, symbol: 'A$', name: 'Australian Dollar', rate: 56 },  // 1 AUD = 56 INR
-  { code: 'CAD' as CurrencyCode, symbol: 'C$', name: 'Canadian Dollar', rate: 62 },   // 1 CAD = 62 INR
-  { code: 'AED' as CurrencyCode, symbol: 'د.إ', name: 'UAE Dirham', rate: 23 },      // 1 AED = 23 INR
-];
+  // Pricing data
+  const pricingData = {
+    IN: [
+      {
+        tier: "Starter",
+        price: "$99",
+        tagline: "Perfect for small startups",
+        color: "from-cyan-500 to-blue-500",
+        features: {
+          "Ad Spend Limit": "Up to $10k",
+          "AI CMO Agent - Fast & Deep Research Modes": "Yes",
+          "AI Dashboard + Diagnostics + Recommendations": "Yes",
+          "Campaign Automation & Optimization - META  * Coming Soon ":
+            "5 campaigns ",
+          "AI Alerts (Anomaly Detection)": "Yes",
+          "AI Custom Reports": "Yes",
+          "Creative Analysis": "Yes",
+          "Attribution (SKU → Channel → Profitability) ": "Yes",
+          // "Data Integrations": "2",
+          "Multi Store Analytics": "2 Store",
+          "Data Refresh once every": "24 hrs",
+          // "Data in GB": "50 GB",
+          "Data Security and Privacy": "Yes",
+          "Dedicated Instance": "No",
+          "Dedicated DB": "No",
+          // "Service Support Time": "72 hrs",
+          "Dedicated Account Manager": "No",
+        },
+      },
+      {
+        tier: "Growth",
+        price: "$349",
+        tagline: "Our most popular plan",
+        color: "from-fuchsia-500 to-violet-500",
+        highlight: true,
+        features: {
+          "Ad Spend Limit": "$25k - $60k",
+          "AI CMO Agent - Fast & Deep Research Modes": "Yes",
+          "AI Dashboard + Diagnostics + Recommendations": "Yes",
+          "Campaign Automation & Optimization - META  * Coming Soon ":
+            "30 campaigns",
+          "AI Alerts (Anomaly Detection)": "Yes",
+          "AI Custom Reports": "Yes",
+          "Creative Analysis": "Yes",
+          "Attribution (SKU → Channel → Profitability) ": "Yes",
+          // "Data Integrations": "5",
+          "Multi Store Analytics": "5 Store",
+          "Data Refresh once every": "24 hrs",
+          // "Data in GB": "300 GB",
+          "Data Security and Privacy": "Yes",
+          "Dedicated Instance": "No",
+          "Dedicated DB": "No",
+          // "Service Support Time": "24 hrs",
+          "Dedicated Account Manager": "No",
+        },
+      },
+      {
+        tier: "Proffessional",
+        price: "$799",
+        tagline: "For scaling brands and agencies",
+        color: "from-orange-500 to-red-500",
+        features: {
+          "Ad Spend Limit": "$60k - $250k",
+          "AI CMO Agent - Fast & Deep Research Modes": "Yes",
+          "AI Dashboard + Diagnostics + Recommendations": "Yes",
+          "Campaign Automation & Optimization - META  * Coming Soon ":
+            "50 campaigns ",
+          "AI Alerts (Anomaly Detection)": "Yes",
+          "AI Custom Reports": "Yes",
+          "Creative Analysis": "Yes",
+          "Attribution (SKU → Channel → Profitability) ": "Yes",
+          // "Data Integrations": "10",
+          "Multi Store Analytics": "15 Stores",
+          "Data Refresh once every": "12 hrs",
+          // "Data in GB": "1 TB",
+          "Data Security and Privacy": "Yes",
+          "Dedicated Instance": "Yes",
+          "Dedicated DB": "Yes",
+          // "Service Support Time": "8 hrs",
+          "Dedicated Account Manager": "Yes",
+        },
+      },
+      {
+        tier: "Enterprise",
+        price: "Custom",
+        tagline: "For multi-region enterprises",
+        color: "from-emerald-500 to-teal-500",
+        features: {
+          "Ad Spend Limit": "Unlimited",
+          "AI CMO Agent - Fast & Deep Research Modes": "Yes",
+          "AI Dashboard + Diagnostics + Recommendations": "Yes",
+          "Campaign Automation & Optimization - META  * Coming Soon ":
+            "Unlimited",
+          "AI Alerts (Anomaly Detection)": "Yes",
+          "AI Custom Reports": "Yes",
+          "Creative Analysis": "Yes",
+          "Attribution (SKU → Channel → Profitability) ": "Yes",
+          // "Data Integrations": "Unlimited + Custom",
+          "Multi Store Analytics": "All stores",
+          "Data Refresh once every": "1 hr",
+          // "Data in GB": "Unlimited",
+          "Data Security and Privacy": "Yes",
+          "Dedicated Instance": "Yes",
+          "Dedicated DB": "Yes",
+          // "Service Support Time": "8 hrs",
+          "Dedicated Account Manager": "Yes",
+        },
+      },
+    ],
+    GLOBAL: [
+      {
+        tier: "Starter",
+        price: "$599",
+        tagline: "Perfect for small startups",
+        color: "from-cyan-500 to-blue-500",
+        features: {
+          "Ad Spend Limit": "Up to $10k",
+          "AI CMO Agent - Fast & Deep Research Modes": "Yes",
+          "AI Dashboard + Diagnostics + Recommendations": "Yes",
+          "Campaign Automation & Optimization - META  * Coming Soon ":
+            "5 campaigns ",
+          "AI Alerts (Anomaly Detection)": "Yes",
+          "AI Custom Reports": "Yes",
+          "Creative Analysis": "Yes",
+          "Attribution (SKU → Channel → Profitability) ": "Yes",
+          // "Data Integrations": "2",
+          "Multi Store Analytics": "2 Store",
+          "Data Refresh once every": "24 hrs",
+          // "Data in GB": "50 GB",
+          "Data Security and Privacy": "Yes",
+          "Dedicated Instance": "No",
+          "Dedicated DB": "No",
+          // "Service Support Time": "72 hrs",
+          "Dedicated Account Manager": "No",
+        },
+      },
+      {
+        tier: "Growth",
+        price: "$1199",
+        tagline: "Our most popular plan",
+        color: "from-fuchsia-500 to-violet-500",
+        highlight: true,
+        features: {
+          "Ad Spend Limit": "$25k - $60k",
+          "AI CMO Agent - Fast & Deep Research Modes": "Yes",
+          "AI Dashboard + Diagnostics + Recommendations": "Yes",
+          "Campaign Automation & Optimization - META  * Coming Soon ":
+            "30 campaigns ",
+          "AI Alerts (Anomaly Detection)": "Yes",
+          "AI Custom Reports": "Yes",
+          "Creative Analysis": "Yes",
+          "Attribution (SKU → Channel → Profitability) ": "Yes",
+          // "Data Integrations": "5",
+          "Multi Store Analytics": "5 Store",
+          "Data Refresh once every": "24 hrs",
+          // "Data in GB": "300 GB",
+          "Data Security and Privacy": "Yes",
+          "Dedicated Instance": "No",
+          "Dedicated DB": "No",
+          // "Service Support Time": "24 hrs",
+          "Dedicated Account Manager": "No",
+        },
+      },
+      {
+        tier: "Proffessional",
+        price: "$1799",
+        tagline: "For scaling brands and agencies",
+        color: "from-orange-500 to-red-500",
+        features: {
+          "Ad Spend Limit": "$60k - $250k",
+          "AI CMO Agent - Fast & Deep Research Modes": "Yes",
+          "AI Dashboard + Diagnostics + Recommendations": "Yes",
+          "Campaign Automation & Optimization - META  * Coming Soon ":
+            "50 campaigns ",
+          "AI Alerts (Anomaly Detection)": "Yes",
+          "AI Custom Reports": "Yes",
+          "Creative Analysis": "Yes",
+          "Attribution (SKU → Channel → Profitability) ": "Yes",
+          // "Data Integrations": "10",
+          "Multi Store Analytics": "15 Stores",
+          "Data Refresh once every": "12 hrs",
+          // "Data in GB": "1 TB",
+          "Data Security and Privacy": "Yes",
+          "Dedicated Instance": "Yes",
+          "Dedicated DB": "Yes",
+          // "Service Support Time": "8 hrs",
+          "Dedicated Account Manager": "Yes",
+        },
+      },
+      {
+        tier: "Enterprise",
+        price: "Custom",
+        tagline: "For multi-region enterprises",
+        color: "from-emerald-500 to-teal-500",
+        features: {
+          "Ad Spend Limit": "Unlimited",
+          "AI CMO Agent - Fast & Deep Research Modes": "Yes",
+          "AI Dashboard + Diagnostics + Recommendations": "Yes",
+          "Campaign Automation & Optimization - META  * Coming Soon ":
+            "Unlimited",
+          "AI Alerts (Anomaly Detection)": "Yes",
+          "AI Custom Reports": "Yes",
+          "Creative Analysis": "Yes",
+          "Attribution (SKU → Channel → Profitability) ": "Yes",
+          // "Data Integrations": "Unlimited + Custom",
+          "Multi Store Analytics": "All stores",
+          "Data Refresh once every": "1 hr",
+          // "Data in GB": "Unlimited",
+          "Data Security and Privacy": "Yes",
+          "Dedicated Instance": "Yes",
+          "Dedicated DB": "Yes",
+          // "Service Support Time": "8 hrs",
+          "Dedicated Account Manager": "Yes",
+        },
+      },
+    ],
+  };
 
-const adSpendMilestonesINR = [5000, 50000, 100000, 250000, 500000, 1000000, 1500000];
-const gmvMilestonesINR = [10000, 100000, 250000, 500000, 1000000, 2000000, 3000000];
+  const data = pricingData[region];
 
-function formatNumber(val: number, code: CurrencyCode): string {
-  if (code === 'INR') {
-    return val.toLocaleString('en-IN', { maximumFractionDigits: 0 });
-  }
-  if (code === 'EUR') {
-    return val.toLocaleString('de-DE', { maximumFractionDigits: 0 });
-  }
-  if (code === 'AED') {
-    return val.toLocaleString('en-AE', { maximumFractionDigits: 0 });
-  }
-  return val.toLocaleString(undefined, { maximumFractionDigits: 0 });
-}
-
-const formatCurrency = (val: number, symbol: string, code: CurrencyCode) =>
-  symbol + formatNumber(val, code);
-
-const getLocalFromINR = (amountInINR: number, rate: number): number => Math.floor(amountInINR / rate);
-
-const PricingPage: React.FC = () => {
-  const [currency, setCurrency] = useState(currencyData[0]);
-  const [gmv, setGMV] = useState<number>(getLocalFromINR(100000, currencyData[0].rate));
-  const [adSpend, setAdSpend] = useState<number>(getLocalFromINR(10000, currencyData[0].rate));
-  const [campaigns, setCampaigns] = useState<number>(5);
-
-  // Limits in selected currency
-  const adSpendCap = getLocalFromINR(1500000, currency.rate);
-  const gmvCap = getLocalFromINR(3000000, currency.rate);
-
-  // Build milestone arrays per currency (milestones <= cap)
-  const milestones = adSpendMilestonesINR.map(amt => getLocalFromINR(amt, currency.rate)).filter(v => v <= adSpendCap);
-
-  // Fix slider value if over new cap (when changing currency)
-  React.useEffect(() => {
-    if (adSpend > adSpendCap) setAdSpend(adSpendCap);
-    if (gmv > gmvCap) setGMV(gmvCap);
-  }, [currency]);
-
-  const usdRate = 85;
-  const eurRate = 90;
-  // CALCULATION correct conversion
-  const fee = (gmv * 0.002) + (adSpend * 0.025);
-
-  let showApprox: { text: string; sym: string };
-  if (currency.code === 'INR') {
-    // INR -> USD
-    showApprox = { text: formatCurrency(fee / usdRate, '$', 'USD'), sym: 'USD' };
-  } else if (currency.code === 'USD') {
-    // USD -> EUR
-    showApprox = { text: formatCurrency(fee * (usdRate / eurRate), '€', 'EUR'), sym: 'EUR' };
-  } else if (currency.code === 'EUR') {
-    // EUR -> USD
-    showApprox = { text: formatCurrency(fee * (eurRate / usdRate), '$', 'USD'), sym: 'USD' };
-  } else {
-    // Others: local -> USD
-    showApprox = { text: formatCurrency(fee * currency.rate / usdRate, '$', 'USD'), sym: 'USD' };
-  }
-
-  // Helper to add plus sign only at cap
-  const showValue = (val: number, max: number, code: CurrencyCode, symbol: string) =>
-    (val >= max ? symbol + formatNumber(max, code) + '+' : symbol + formatNumber(val, code));
+  // Get all feature keys dynamically from the first plan
+  const featureKeys = Object.keys(data[0].features);
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-[#f5e6ff] via-[#f0f9ff] to-[#e5f2ff] flex flex-col items-center justify-center py-12">
-      <div className="w-full max-w-2xl bg-white/80 dark:bg-[#211b2a]/90 shadow-2xl rounded-3xl p-10 border border-blue-100 dark:border-blue-950 relative overflow-hidden">
-        <div className="absolute -top-32 -left-32 w-96 h-96 bg-gradient-to-br from-fuchsia-300 via-violet-300 to-cyan-200 rounded-full blur-3xl opacity-60 pointer-events-none"></div>
-        <div className="absolute -bottom-32 -right-32 w-96 h-96 bg-gradient-to-tr from-cyan-200 via-violet-300 to-pink-300 rounded-full blur-3xl opacity-50 pointer-events-none"></div>
-        <h1 className="text-4xl md:text-5xl font-bold mb-3 text-center bg-gradient-to-r from-fuchsia-600 via-violet-600 to-cyan-500 bg-clip-text text-transparent">
-          AI CMO Pricing Calculator
+    <div className="min-h-screen bg-gradient-to-b from-[#faf7ff] via-[#f4faff] to-[#f6fff8] py-10 md:py-20 px-4 md:px-6">
+      <style
+        dangerouslySetInnerHTML={{
+          __html: `
+          .scrollbar-thin::-webkit-scrollbar {
+            height: 8px;
+          }
+          .scrollbar-thin::-webkit-scrollbar-track {
+            background: #f1f5f9;
+            border-radius: 4px;
+          }
+          .scrollbar-thin::-webkit-scrollbar-thumb {
+            background: #cbd5e1;
+            border-radius: 4px;
+          }
+          .scrollbar-thin::-webkit-scrollbar-thumb:hover {
+            background: #94a3b8;
+          }
+        `,
+        }}
+      />
+      <motion.div
+        initial={{ opacity: 0, y: -30 }}
+        animate={{ opacity: 1, y: 0 }}
+        className="text-center mb-12"
+      >
+        <h1 className="text-5xl md:text-6xl font-bold bg-gradient-to-r from-fuchsia-600 via-violet-600 to-cyan-500 bg-clip-text text-transparent">
+          Choose Your Flable Plan
         </h1>
-        <p className="text-lg md:text-xl text-gray-700 dark:text-gray-100 text-center mb-12 max-w-xl mx-auto">
-          Get an instant quote — see your monthly subscription tailored to your business size and country.
+        <p className="text-gray-600 mt-4 text-lg">
+          Scalable pricing for every growth stage — powered by AI intelligence.
         </p>
-        <div className="flex flex-col md:flex-row md:items-center justify-center gap-3 mb-8 w-full">
-          <span className="font-semibold text-gray-800 dark:text-gray-100">Country/Currency: </span>
-          <select
-            value={currency.code}
-            onChange={e => {
-              const cur = currencyData.find(c => c.code === e.target.value as CurrencyCode);
-              setCurrency(cur || currencyData[0]);
-            }}
-            className="rounded-xl border border-gray-300 px-5 py-2 bg-white text-lg focus:outline-none focus:ring-violet-400"
+      </motion.div>
+
+      {/* Region Toggle */}
+      <div className="flex justify-center mb-12">
+        <div className="flex items-center bg-white/70 border border-gray-200 rounded-full shadow-lg backdrop-blur-md">
+          <button
+            onClick={() => setRegion("GLOBAL")}
+            className={`px-6 py-2 font-semibold rounded-full transition-all ${
+              region === "GLOBAL"
+                ? "bg-gradient-to-r from-cyan-500 to-violet-500 text-white"
+                : "text-gray-600 hover:text-cyan-500"
+            }`}
           >
-            {currencyData.map(cur => (
-              <option key={cur.code} value={cur.code}>{cur.name} ({cur.symbol})</option>
-            ))}
-          </select>
-        </div>
-        <div className="flex flex-wrap items-center gap-2 justify-center mb-7">
-          {milestones.map((ms) => {
-            const isCap = ms === adSpendCap;
-            return (
-              <button
-                key={ms}
-                type="button"
-                className={
-                  "px-4 py-2 rounded-full bg-gradient-to-br text-white font-bold text-lg focus:outline-none " +
-                  (adSpend === ms ? "from-fuchsia-600 to-cyan-500 shadow-xl scale-110" : "from-gray-300 to-violet-200 opacity-90 hover:from-fuchsia-300 hover:to-cyan-300")}
-                onClick={() => setAdSpend(ms)}
-              >
-                {currency.symbol}{formatNumber(ms, currency.code)}{isCap ? '+' : ''} /mo
-              </button>
-            );
-          })}
-        </div>
-        <div className="space-y-8 mb-10 mt-3">
-          <div>
-            <label className="block mb-2 font-semibold text-gray-800 dark:text-gray-100">GMV (Monthly Gross Merchandise Volume)</label>
-            <div className="flex items-center space-x-4">
-              <input
-                type="range"
-                min={0} max={gmvCap} step={1000}
-                value={gmv}
-                onChange={e => setGMV(Number(e.target.value))}
-                style={{background: `linear-gradient(90deg, #f472b6 ${(gmv/gmvCap)*100}%, #e0e7ff ${(gmv/gmvCap)*100}%)`}}
-                className="w-full accent-fuchsia-500 cursor-pointer h-2 rounded-lg appearance-none outline-none bg-gradient-to-r from-fuchsia-500 via-violet-400 to-cyan-400 shadow-inner"
-              />
-              <span className="w-28 text-right font-mono text-lg">{showValue(gmv, gmvCap, currency.code, currency.symbol)}</span>
-            </div>
-          </div>
-          <div>
-            <label className="block mb-2 font-semibold text-gray-800 dark:text-gray-100">Ad Spend (Monthly)</label>
-            <div className="flex items-center space-x-4">
-              <input
-                type="range"
-                min={0} max={adSpendCap} step={500}
-                value={adSpend}
-                onChange={e => setAdSpend(Number(e.target.value))}
-                style={{background: `linear-gradient(90deg, #a21caf ${(adSpend/adSpendCap)*100}%, #e0e7ff ${(adSpend/adSpendCap)*100}%)`}}
-                className="w-full accent-violet-700 cursor-pointer h-2 rounded-lg appearance-none outline-none bg-gradient-to-r from-fuchsia-500 via-violet-600 to-cyan-400 shadow-inner"
-              />
-              <span className="w-28 text-right font-mono text-lg">{showValue(adSpend, adSpendCap, currency.code, currency.symbol)}</span>
-            </div>
-          </div>
-          <div>
-            <label className="block mb-2 font-semibold text-gray-800 dark:text-gray-100">Active Campaigns</label>
-            <div className="flex items-center space-x-4">
-              <input
-                type="range"
-                min={1} max={50}
-                value={campaigns}
-                onChange={e => setCampaigns(Number(e.target.value))}
-                style={{background: `linear-gradient(90deg, #06b6d4 ${(campaigns/50)*100}%, #e0e7ff ${(campaigns/50)*100}%)`}}
-                className="w-full accent-cyan-500 cursor-pointer h-2 rounded-lg appearance-none outline-none bg-gradient-to-r from-fuchsia-500 via-violet-600 to-cyan-400 shadow-inner"
-              />
-              <span className="w-16 text-right font-mono text-lg">{campaigns}</span>
-            </div>
-          </div>
-        </div>
-        <div className="bg-gradient-to-r from-fuchsia-500 via-violet-600 to-cyan-400 text-white rounded-2xl shadow-lg p-8 flex flex-col items-center mb-8 animate-fade-in-up">
-          <div className="text-2xl md:text-4xl font-bold">Your Monthly Price</div>
-          <div className="mt-2 text-4xl md:text-6xl font-mono tracking-tight bg-white bg-clip-text text-transparent bg-gradient-to-r from-cyan-200 via-rose-200 to-fuchsia-100">
-            {formatCurrency(fee, currency.symbol, currency.code)} <span className="text-lg">/month</span>
-          </div>
-          <div className="mt-2 text-lg font-medium opacity-80">≈ {showApprox.text} per month</div>
-        </div>
-        <p className="text-sm text-center text-gray-400 dark:text-gray-100 mb-4">*Quotes are instant, no hidden charges. All prices exclusive of taxes. Upgrade, downgrade, or cancel any time.</p>
-        <div className="flex justify-center">
-          <a href="/book-demo" className="btn-neo px-8 py-4 text-lg font-bold rounded-full shadow-lg border-2 border-transparent bg-gradient-to-r from-fuchsia-500 via-violet-600 to-cyan-400 text-white transition-all hover:scale-105 hover:shadow-2xl hover:border-violet-300">
-            Hire Your AI CMO
-          </a>
+            🌍 Global
+          </button>
+          <button
+            onClick={() => setRegion("IN")}
+            className={`px-6 py-2 font-semibold rounded-full transition-all ${
+              region === "IN"
+                ? "bg-gradient-to-r from-fuchsia-500 to-cyan-500 text-white"
+                : "text-gray-600 hover:text-violet-500"
+            }`}
+          >
+            🇮🇳 India
+          </button>
         </div>
       </div>
+
+      {/* Pricing Table */}
+      <motion.div
+        key={region}
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5 }}
+        className="max-w-7xl mx-auto"
+      >
+        {/* Mobile Scroll Hint */}
+        <div className="md:hidden text-center mb-4">
+          <p className="text-sm text-gray-500 flex items-center justify-center gap-2">
+            <svg
+              className="w-4 h-4"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="2"
+                d="M8 9l4-4 4 4m0 6l-4 4-4-4"
+              />
+            </svg>
+            Scroll horizontally to view all plans
+            <svg
+              className="w-4 h-4"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="2"
+                d="M8 9l4-4 4 4m0 6l-4 4-4-4"
+              />
+            </svg>
+          </p>
+        </div>
+
+        {/* Mobile/Tablet Scrollable Container */}
+        <div className="overflow-x-auto scrollbar-thin scrollbar-thumb-gray-300 scrollbar-track-gray-100">
+          <div className="bg-white/80 backdrop-blur-md  shadow-2xl border border-gray-100 overflow-hidden min-w-[1000px]">
+            <table className="w-full">
+              {/* Table Header */}
+              <thead>
+                <tr className="border-b border-gray-100">
+                  <th className="text-left text-sm md:text-lg p-3 md:p-6 bg-gray-50/50 font-semibold text-gray-700 w-1/5 min-w-[200px]">
+                    Features
+                  </th>
+                  {data.map((tier) => (
+                    <th
+                      key={tier.tier}
+                      className="p-3 md:p-6 text-center relative w-1/5 min-w-[180px]"
+                    >
+                      <div
+                        className={`absolute inset-0 bg-gradient-to-br ${tier.color} opacity-5`}
+                      ></div>
+                      <div className="relative z-10">
+                        <div
+                          className={`inline-block px-2 md:px-4 py-1 md:py-2 rounded-full bg-gradient-to-r ${
+                            tier.color
+                          } text-white font-bold text-sm md:text-lg mb-2 ${
+                            tier.highlight
+                              ? "ring-2 ring-violet-400 ring-offset-2"
+                              : ""
+                          }`}
+                        >
+                          {tier.tier}
+                        </div>
+                        {/* <p className="text-xs md:text-sm text-gray-600 mb-2">
+                          {tier.tagline}
+                        </p> */}
+                        <div className="text-lg md:text-2xl mt-3 font-extrabold bg-gradient-to-r from-fuchsia-600 to-cyan-500 bg-clip-text text-transparent">
+                          {tier.price} {tier.price === "Custom" ? "" : " / mo"}
+                        </div>
+                      </div>
+                    </th>
+                  ))}
+                </tr>
+              </thead>
+
+              {/* Table Body */}
+              <tbody>
+                {featureKeys.map((feature, index) => (
+                  <tr
+                    key={feature}
+                    className={`border-b border-gray-50 hover:bg-gray-50/30 transition-colors ${
+                      index % 2 === 0 ? "bg-white/50" : "bg-gray-50/20"
+                    }`}
+                  >
+                    <td className="p-2 md:p-4 font-medium text-gray-800 border-r border-gray-100 text-sm md:text-base">
+                      <div className="min-w-[180px]">
+                        {feature.includes("Coming Soon")
+                          ? feature.replace("* Coming Soon", "").trim()
+                          : feature}
+                        {feature.includes("Coming Soon") && (
+                          <span className="inline-block mt-1 md:mt-2 bg-violet-100 text-violet-600 text-xs font-semibold px-2 py-1 rounded-full">
+                            Coming Soon
+                          </span>
+                        )}
+                      </div>
+                    </td>
+                    {data.map((tier) => (
+                      <td
+                        key={tier.tier}
+                        className="p-2 md:p-4 text-center relative min-w-[160px]"
+                      >
+                        <div className="flex items-center justify-center">
+                          <span className="text-xs md:text-sm text-gray-700 font-medium">
+                            {(() => {
+                              const featureValue = tier.features[
+                                feature as keyof typeof tier.features
+                              ]
+                                ?.replace("* Coming Soon", "")
+                                .trim();
+
+                              if (featureValue === "Yes") {
+                                return (
+                                  <div
+                                    className={`w-4 h-4 rounded-full bg-gradient-to-r ${tier.color} flex items-center justify-center mr-2 flex-shrink-0`}
+                                  >
+                                    <svg
+                                      className="w-2.5 h-2.5 text-white"
+                                      fill="currentColor"
+                                      viewBox="0 0 20 20"
+                                    >
+                                      <path
+                                        fillRule="evenodd"
+                                        d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                                        clipRule="evenodd"
+                                      />
+                                    </svg>
+                                  </div>
+                                );
+                              } else if (featureValue === "No") {
+                                return (
+                                  <span className="text-red-600 font-bold text-lg">
+                                    ✗
+                                  </span>
+                                );
+                              } else {
+                                return <>{featureValue || "✓"}</>;
+                              }
+                            })()}
+                          </span>
+                        </div>
+                      </td>
+                    ))}
+                  </tr>
+                ))}
+
+                {/* Action Buttons Row */}
+                <tr className="bg-gray-50/50">
+                  <td className="p-3 md:p-6 font-semibold text-gray-700 border-r border-gray-100 text-sm md:text-base">
+                    <div className="min-w-[180px]">Get Started</div>
+                  </td>
+                  {data.map((tier) => (
+                    <td
+                      key={tier.tier}
+                      className="p-3 md:p-6 text-center min-w-[160px]"
+                    >
+                      <Link
+                        to="https://outlook.office.com/bookwithme/user/c131e2ddbc4c441e8ad355a708c6c169@flable.ai/meetingtype/gs8moKktfk6hEJ0RFqQLEg2?anonymous&ismsaljsauthenabled&ep=mLinkFromTile"
+                        target="_blank"
+                        className={`inline-block w-full py-2 md:py-3 px-3 md:px-6 rounded-3xl font-semibold text-white bg-gradient-to-r ${tier.color} hover:opacity-90 hover:scale-105 transition-all duration-200 shadow-lg text-xs md:text-sm`}
+                      >
+                        {tier.price === "Custom"
+                          ? "Contact Sales"
+                          : "Get Started"}
+                      </Link>
+                    </td>
+                  ))}
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </motion.div>
+
+      <p className="text-gray-500 text-center text-sm mt-12">
+        *All prices include taxes. Cancel anytime. Enterprise customers get
+        onboarding support.
+      </p>
     </div>
   );
 };

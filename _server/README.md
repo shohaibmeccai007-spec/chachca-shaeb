@@ -5,12 +5,14 @@ Backend server for Flable AI with MongoDB, Google Sheets integration, and email 
 ## Setup Instructions
 
 ### 1. Install Dependencies
+
 ```bash
 cd server
 npm install
 ```
 
 ### 2. Environment Variables
+
 Create a `.env` file in the server directory with the following variables:
 
 ```env
@@ -25,7 +27,7 @@ MONGODB_URI=mongodb://localhost:27017/flable-ai
 # Email Configuration (Gmail)
 EMAIL_USER=your-email@gmail.com
 EMAIL_PASS=your-app-password
-ADMIN_EMAIL=info@flable.ai
+ADMIN_EMAIL=sales@flable.ai
 
 # Google Sheets Configuration
 GOOGLE_SHEET_ID=your-google-sheet-id
@@ -37,6 +39,7 @@ GEMINI_API_KEY=your-gemini-api-key
 ```
 
 ### 3. Google Gemini AI Setup
+
 1. Go to [Google AI Studio](https://makersuite.google.com/app/apikey)
 2. Sign in with your Google account
 3. Click "Create API Key"
@@ -44,6 +47,7 @@ GEMINI_API_KEY=your-gemini-api-key
 5. Add it to your .env file as `GEMINI_API_KEY`
 
 ### 4. Google Sheets Setup
+
 1. Create a new Google Sheet
 2. Go to Google Cloud Console
 3. Create a new project or select existing
@@ -55,15 +59,18 @@ GEMINI_API_KEY=your-gemini-api-key
 9. Add the service account email and private key to your .env file
 
 ### 5. Gmail Setup
+
 1. Enable 2-factor authentication on your Gmail account
 2. Generate an App Password
 3. Use the App Password in EMAIL_PASS (not your regular password)
 
 ### 6. MongoDB Setup
+
 - Local: Install MongoDB locally
 - Cloud: Use MongoDB Atlas and update MONGODB_URI
 
 ### 7. Run the Server
+
 ```bash
 # Development
 npm run dev
@@ -75,10 +82,12 @@ npm start
 ## API Endpoints
 
 ### Booking
+
 - `POST /api/booking` - Submit booking form
 - `GET /api/booking` - Get all bookings (admin)
 
 ### Blog
+
 - `GET /api/blog` - Get all blog posts
 - `GET /api/blog/:id` - Get single blog post
 - `POST /api/blog` - Create blog post (admin)
@@ -86,12 +95,15 @@ npm start
 - `DELETE /api/blog/:id` - Delete blog post (admin)
 
 ### Contact
+
 - `POST /api/contact` - Submit contact form
 
 ### Newsletter
+
 - `POST /api/newsletter` - Subscribe to newsletter
 
 ### Testimonials
+
 - `GET /api/testimonial` - Get all testimonials
 - `POST /api/testimonial` - Create testimonial (admin)
 
