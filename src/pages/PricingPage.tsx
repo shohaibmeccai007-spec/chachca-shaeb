@@ -16,8 +16,8 @@ const PricingPage = () => {
           "Ad Spend Limit": "Up to $10k",
           "AI CMO Agent": "",
           "AI Dashboard + Diagnostics + Recommendations": "",
-          "Campaign Automation & Optimization (META) * Coming Soon":
-            "5 campaigns",
+          "Campaign Automation & Optimization - META ":
+            "5 campaigns * Coming Soon ",
           // "AI Alerts (Anomaly Detection)": "No",
           "AI Custom Reports": "",
           "Creative Analysis": "",
@@ -43,8 +43,8 @@ const PricingPage = () => {
           "Ad Spend Limit": "$25k - $60k",
           "AI CMO Agent": "",
           "AI Dashboard + Diagnostics + Recommendations": "",
-          "Campaign Automation & Optimization (META) * Coming Soon":
-            "30 campaigns",
+          "Campaign Automation & Optimization - META ":
+            "30 campaigns * Coming Soon",
           "AI Alerts (Anomaly Detection)": "",
           "AI Custom Reports": "",
           "Creative Analysis": "",
@@ -69,8 +69,8 @@ const PricingPage = () => {
           "Ad Spend Limit": "$60k - $250k",
           "AI CMO Agent": "",
           "AI Dashboard + Diagnostics + Recommendations": "",
-          "Campaign Automation & Optimization (META) * Coming Soon":
-            "50 campaigns",
+          "Campaign Automation & Optimization - META ":
+            "50 campaigns * Coming Soon ",
           "AI Alerts (Anomaly Detection)": "",
           "AI Custom Reports": "",
           "Creative Analysis": "",
@@ -95,8 +95,8 @@ const PricingPage = () => {
           "Ad Spend Limit": "Unlimited",
           "AI CMO Agent": "",
           "AI Dashboard + Diagnostics + Recommendations": "",
-          "Campaign Automation & Optimization (META) * Coming Soon":
-            "Unlimited",
+          "Campaign Automation & Optimization - META ":
+            "Unlimited * Coming Soon ",
           "AI Alerts (Anomaly Detection)": "",
           "AI Custom Reports": "",
           "Creative Analysis": "",
@@ -123,8 +123,8 @@ const PricingPage = () => {
           "Ad Spend Limit": "Up to $10k",
           "AI CMO Agent": "",
           "AI Dashboard + Diagnostics + Recommendations": "",
-          "Campaign Automation & Optimization (META) * Coming Soon":
-            "5 campaigns",
+          "Campaign Automation & Optimization - META ":
+            "5 campaigns * Coming Soon ",
           // "AI Alerts (Anomaly Detection)": "No",
           "AI Custom Reports": "",
           "Creative Analysis": "",
@@ -150,8 +150,8 @@ const PricingPage = () => {
           "Ad Spend Limit": "$25k - $60k",
           "AI CMO Agent": "",
           "AI Dashboard + Diagnostics + Recommendations": "",
-          "Campaign Automation & Optimization (META) * Coming Soon":
-            "30 campaigns",
+          "Campaign Automation & Optimization - META ":
+            "30 campaigns * Coming Soon ",
           "AI Alerts (Anomaly Detection)": "",
           "AI Custom Reports": "",
           "Creative Analysis": "",
@@ -176,8 +176,8 @@ const PricingPage = () => {
           "Ad Spend Limit": "$60k - $250k",
           "AI CMO Agent": "",
           "AI Dashboard + Diagnostics + Recommendations": "",
-          "Campaign Automation & Optimization (META) * Coming Soon":
-            "50 campaigns",
+          "Campaign Automation & Optimization - META ":
+            "50 campaigns * Coming Soon ",
           "AI Alerts (Anomaly Detection)": "",
           "AI Custom Reports": "",
           "Creative Analysis": "",
@@ -202,8 +202,8 @@ const PricingPage = () => {
           "Ad Spend Limit": "Unlimited",
           "AI CMO Agent": "",
           "AI Dashboard + Diagnostics + Recommendations": "",
-          "Campaign Automation & Optimization (META) * Coming Soon":
-            "Unlimited",
+          "Campaign Automation & Optimization - META ":
+            "Unlimited * Coming Soon ",
           "AI Alerts (Anomaly Detection)": "",
           "AI Custom Reports": "",
           "Creative Analysis": "",
@@ -313,7 +313,22 @@ const PricingPage = () => {
                       </div>
                       <div className="flex-1 min-w-0">
                         <p className="text-sm text-gray-800 font-medium">
-                          {key} {tier.features[key] ? `: ${tier.features[key]}` : null}
+                          {key}{" "}
+                          {tier.features[key as keyof typeof tier.features]
+                            ? `: ${
+                                tier.features[
+                                  key as keyof typeof tier.features
+                                ]?.replace("* Coming Soon", "") || ""
+                              }`
+                            : null}
+                          {tier.features[key as keyof typeof tier.features] &&
+                            tier.features[
+                              key as keyof typeof tier.features
+                            ]?.includes("Coming Soon") && (
+                              <span className="text-xs text-violet-500 font-normal ml-1">
+                                * Coming Soon
+                              </span>
+                            )}
                         </p>
                       </div>
                     </div>

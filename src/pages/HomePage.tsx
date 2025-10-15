@@ -30,12 +30,12 @@ const ProblemSolutionSection = () => (
               The Real Problem
             </span>
           </div>
-          <p className="text-2xl md:text-3xl text-gray-900 font-semibold text-center max-w-3xl mb-2">
+          <p className="text-xl md:text-2xl text-gray-900 font-semibold text-center max-w-3xl mb-2">
             'Performance Marketing decisions still run on incomplete data. Every
             channel tells a different story, and no one sees the full profit
             picture.
-            <br />
-            <br />
+          </p>
+          <p className=" text-gray-600 font-medium text-center max-w-3xl mb-2">
             Flable brings your marketing, sales, CRM, Commerce and logistics
             data together to drive actions that lift CAC, ROAS, ROI, LTV and
             Profitability —not just CPC's & CTR's
@@ -183,8 +183,7 @@ const testimonials = [
               </span>
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Real results from real businesses using Flable AI to transform
-              their marketing operations
+              Real results from real businesses using Flable AI
             </p>
           </div>
         </ScrollReveal>
@@ -257,7 +256,7 @@ const testimonials = [
             <div className="bg-white/80 backdrop-blur-sm rounded-3xl p-8 shadow-xl border border-white/20 max-w-2xl mx-auto">
               <h3 className="text-3xl font-bold text-gray-900 mb-4">
                 <span className="bg-gradient-to-r from-fuchsia-500 via-cyan-400 to-violet-500 bg-clip-text text-transparent">
-                  Ready to Join Them?
+                  Ready to Start?
                 </span>
               </h3>
               <p className="text-gray-600 mb-6 text-lg">
