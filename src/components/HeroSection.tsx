@@ -2,19 +2,19 @@ import RotatingImagesSection from './RotatingImagesSection';
 import ScrollReveal from './ScrollReveal';
 
 const HeroSection = () => (
-  <section className="py-32 px-4 text-center relative overflow-hidden">
+  <section className="py-20 px-4 text-center relative overflow-hidden">
     <div className="absolute inset-0 bg-gradient-to-br from-fuchsia-50 via-white to-cyan-50"></div>
     <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-fuchsia-100/20 via-transparent to-transparent"></div>
     <div className="relative z-10 max-w-7xl mx-auto">
       <ScrollReveal variant="slow">
-        <div className="flex flex-col items-center justify-center mb-16">
+        <div className="flex flex-col items-center justify-center mb-8">
           <div className="inline-flex items-center gap-2 bg-white/80 backdrop-blur-sm border border-fuchsia-200 rounded-full px-6 py-3 mb-8">
             <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
             <span className="text-sm font-medium text-gray-700">AI CMO Active</span>
           </div>
           <h1 className="text-5xl md:text-7xl font-extrabold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-fuchsia-500 via-violet-500 to-cyan-400 drop-shadow-lg text-center">AI CMO for D2C Brands</h1>
           <p className="text-xl md:text-2xl text-gray-700 max-w-2xl leading-relaxed mb-6 font-light text-center">
-            A profit-first AI CMO for D2C brands that diagnoses performance and improves campaign profitability across all marketing channels.
+            A profit-first AI CMO for D2C brands that diagnoses performance and improves campaign profitability across Meta Ads and Google Ads.
           </p>
           <p className="text-lg md:text-xl text-gray-600 max-w-2xl leading-relaxed mb-8 font-light text-center">
             It works autonomously, running campaigns and providing insights so your brand can scale smarter and faster.
@@ -38,7 +38,7 @@ const HeroSection = () => (
             </div>
             <div className="flex items-center gap-2">
               <div className="w-2 h-2 bg-purple-500 rounded-full"></div>
-              <span>No human CMO needed</span>
+              <span>No Marketing Analyst Needed</span>
             </div>
           </div>
         </div>

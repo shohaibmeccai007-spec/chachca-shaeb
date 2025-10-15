@@ -3,39 +3,44 @@ import { Clock, TrendingUp, Zap, Brain, ArrowRight } from 'lucide-react';
 import ScrollReveal from './ScrollReveal';
 
 const ValueProposition = () => {
-  const benefits = [
-    {
-      icon: Clock,
-      title: 'Your Time Back',
-      description: 'Stop drowning in spreadsheets and campaign tweaks. Let your AI CMO handle the grunt work while you focus on the big picture.',
-      stat: '85% time saved',
-      color: 'bg-blue-50 text-blue-600 border-blue-200'
-    },
-    {
-      icon: TrendingUp,
-      title: 'ROI That Actually Rocks',
-      description: 'Watch your returns soar as our AI finds hidden opportunities and optimizes every dollar like a marketing genius.',
-      stat: '+35% ROI boost',
-      color: 'bg-green-50 text-green-600 border-green-200'
-    },
-    {
-      icon: Zap,
-      title: 'Always-On Marketing',
-      description: 'While you sleep, your AI CMO is working. 24/7 optimization means your campaigns never miss a beat.',
-      stat: '24/7 optimization',
-      color: 'bg-orange-50 text-orange-600 border-orange-200'
-    },
-    {
-      icon: Brain,
-      title: 'Marketing Superpowers',
-      description: 'Connect all your channels into one powerful brain. See the full picture and make decisions that actually work.',
-      stat: '5+ channels unified',
-      color: 'bg-purple-50 text-purple-600 border-purple-200'
-    }
-  ];
+const benefits = [
+  {
+    icon: Brain,
+    title: 'Clarity from Chaos',
+    description:
+      'Bring every campaign, SKU, and spend signal into one profit lens. From ad noise to full-funnel clarity — see where every euro makes or loses money.',
+    stat: '90% faster visibility across all channels',
+    color: 'bg-purple-50 text-purple-600 border-purple-200',
+  },
+  {
+    icon: Clock,
+    title: 'Your Time Back',
+    description:
+      'Stop drowning in spreadsheets and manual reports. Flable automates data prep and analysis, so you focus on growth decisions — not grunt work.',
+    stat: '80% less reporting time',
+    color: 'bg-blue-50 text-blue-600 border-blue-200',
+  },
+  {
+    icon: Zap,
+    title: 'Always-On Intelligence',
+    description:
+      'Flable continuously diagnoses leaks and surfaces profit opportunities. Get alerts, insights, and recommendations — no dashboard digging required.',
+    stat: '24/7 actionable insights and smarter decisions',
+    color: 'bg-orange-50 text-orange-600 border-orange-200',
+  },
+  {
+    icon: TrendingUp,
+    title: 'ROI That Actually Grows',
+    description:
+      'Connect every euro of spend to real profit outcomes. Reallocate budgets with precision and watch returns climb.',
+    stat: '+35% ROI boost',
+    color: 'bg-green-50 text-green-600 border-green-200',
+  },
+];
+
 
   return (
-    <section className="py-32 bg-gradient-to-br from-indigo-50 via-white to-purple-50 relative overflow-hidden">
+    <section className="py-20 bg-gradient-to-br from-indigo-50 via-white to-purple-50 relative overflow-hidden">
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-indigo-100/30 via-transparent to-transparent"></div>
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <ScrollReveal>
@@ -46,7 +51,8 @@ const ValueProposition = () => {
                   </span>
                 </h2>
                 <p className="text-xl md:text-2xl text-gray-600 max-w-4xl mx-auto leading-relaxed">
-                  Because we're not just another AI tool—we're your <span className="font-bold brand-text">marketing soulmate</span>. We get you, we get your challenges, and we make marketing fun again.
+                 Flable acts as your <span className="font-bold brand-text">AI CMO </span>, bringing clarity, intelligence, and accountability to every marketing dollar.
+We get you, we get your challenges — and we make marketing fun again.
                 </p>
           </div>
         </ScrollReveal>
@@ -55,7 +61,7 @@ const ValueProposition = () => {
           {benefits.map((benefit, index) => (
             <ScrollReveal key={index} variant="zoom">
               <div 
-                className={`relative group glass-card hover-float-glow rounded-2xl p-8 transition-all duration-300 cursor-pointer ${benefit.color}`}
+                className={`relative group glass-card hover-float-glow rounded-2xl p-8 transition-all duration-300 cursor-pointer md:min-h-[520px] ${benefit.color}`}
               >
               {/* Background decoration */}
               <div className="absolute top-0 right-0 w-20 h-20 bg-gradient-to-br from-blue-100 to-indigo-100 rounded-bl-2xl opacity-50"></div>

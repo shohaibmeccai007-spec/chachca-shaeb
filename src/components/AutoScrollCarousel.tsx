@@ -11,7 +11,7 @@ const AutoScrollCarousel = () => {
       logo: "/assets/clients/edureka.png",
       industry: "Education",
     },
-    { name: "MYOP", logo: "/assets/clients/myop.png", industry: "E-commerce" },
+    { name: "MYOP", logo: "/assets/clients/myop.png", industry: "Perfume & Fragrance" },
     {
       name: "Pokonut",
       logo: "/assets/clients/pokonut.png",
@@ -20,13 +20,13 @@ const AutoScrollCarousel = () => {
     {
       name: "Assembly Travel",
       logo: "/assets/clients/assembly.png",
-      industry: "Travel",
+      industry: "Travel Accessories",
     },
     { name: "Snitch", logo: "/assets/clients/snitch.png", industry: "Fashion" },
     {
       name: "Gran N Grace",
       logo: "/assets/clients/grainengrace.png",
-      industry: "Beauty",
+      industry: "Food",
     },
     {
       name: "Kylee Fashion",
@@ -172,54 +172,60 @@ const AutoScrollCarousel = () => {
         </ScrollReveal>
 
         {/* Enhanced Stats Section */}
-        <ScrollReveal>
-          <div className="mt-20 relative">
-            <div className="bg-white/60 backdrop-blur-sm rounded-3xl border border-white/40 p-8 md:p-12">
-              <div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-12">
-                {[
-                  {
-                    number: "50+",
-                    label: "Happy Clients",
-                    color: "from-cyan-500 to-blue-500",
-                  },
-                  {
-                    number: "+290%",
-                    label: "Average ROAS",
-                    color: "from-violet-500 to-purple-500",
-                  },
-                  {
-                    number: "24/7",
-                    label: "AI Support",
-                    color: "from-pink-500 to-rose-500",
-                  },
-                  {
-                    number: "99%",
-                    label: "Client Satisfaction",
-                    color: "from-emerald-500 to-green-500",
-                  },
-                ].map((stat, index) => (
-                  <div key={index} className="text-center group cursor-default">
-                    <div className="relative mb-4">
-                      <div
-                        className={`absolute inset-0 bg-gradient-to-r ${stat.color} rounded-2xl blur-lg opacity-20 group-hover:opacity-40 transition-opacity duration-300`}
-                      ></div>
-                      <div className="relative bg-white rounded-2xl p-6 border-2 border-gray-100 group-hover:border-gray-200 transition-all duration-300 group-hover:scale-105">
-                        <div
-                          className={`text-4xl md:text-5xl font-bold bg-gradient-to-r ${stat.color} bg-clip-text text-transparent mb-2`}
-                        >
-                          {stat.number}
-                        </div>
-                      </div>
-                    </div>
-                    <div className="text-gray-700 font-semibold text-lg group-hover:text-gray-900 transition-colors duration-300">
-                      {stat.label}
-                    </div>
-                  </div>
-                ))}
+<ScrollReveal>
+  <div className="mt-20 relative">
+    <div className="bg-white/60 backdrop-blur-sm rounded-3xl border border-white/40 p-8 md:p-12">
+      <div className="grid grid-cols-2 md:grid-cols-5 gap-8 md:gap-12">
+        {[
+          {
+            number: "50+",
+            label: "Happy Clients",
+            color: "from-cyan-500 to-blue-500",
+          },
+          {
+            number: "10×",
+            label: "Faster Campaign Launches",
+            color: "from-violet-500 to-purple-500",
+          },
+          {
+            number: "80%",
+            label: "Reduced Analyst Workforce",
+            color: "from-pink-500 to-rose-500",
+          },
+          {
+            number: "+200%",
+            label: "ROAS Improved",
+            color: "from-amber-500 to-orange-500",
+          },
+          {
+            number: "100%",
+            label: "Satisfaction or Money-Back Guarantee",
+            color: "from-emerald-500 to-green-500",
+          },
+        ].map((stat, index) => (
+          <div key={index} className="text-center group cursor-default">
+            <div className="relative mb-4">
+              <div
+                className={`absolute inset-0 bg-gradient-to-r ${stat.color} rounded-2xl blur-lg opacity-20 group-hover:opacity-40 transition-opacity duration-300`}
+              ></div>
+              <div className="relative bg-white rounded-2xl p-6 border-2 border-gray-100 group-hover:border-gray-200 transition-all duration-300 group-hover:scale-105">
+                <div
+                  className={`text-4xl md:text-4xl font-bold bg-gradient-to-r ${stat.color} bg-clip-text text-transparent mb-2`}
+                >
+                  {stat.number}
+                </div>
               </div>
             </div>
+            <div className="text-gray-700 font-semibold text-md group-hover:text-gray-900 transition-colors duration-300">
+              {stat.label}
+            </div>
           </div>
-        </ScrollReveal>
+        ))}
+      </div>
+    </div>
+  </div>
+</ScrollReveal>
+
       </div>
     </section>
   );

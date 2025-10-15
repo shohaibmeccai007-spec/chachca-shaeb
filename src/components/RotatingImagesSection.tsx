@@ -3,9 +3,11 @@ import ScrollReveal from "./ScrollReveal";
 
 const RotatingImagesSection = () => {
   const images = [
-    "/assets/dashboard.png",
+    // "/assets/dashboard.png",
+    "/assets/dash.png",
     "/assets/ads-automation.png",
-    "/assets/agent.png",
+    "/assets/chat.png",
+    "/assets/alert.png",
   ];
 
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -55,13 +57,13 @@ const RotatingImagesSection = () => {
           <div className="flex flex-col items-center">
             {/* Main Image Container */}
             <div className="relative mb-8">
-              <div className="relative w-80 h-80 sm:w-96 sm:h-96 md:w-[500px] md:h-[400px] lg:w-[900px] lg:h-[650px] mx-auto">
+              <div className="relative w-80 h-80 sm:w-96 sm:h-96 md:w-[500px] md:h-[400px] lg:w-[800px] lg:h-[450px] mx-auto">
                 <div className="absolute inset-0 bg-gradient-to-r from-fuchsia-500/20 via-violet-500/20 to-cyan-400/20 rounded-3xl blur-xl"></div>
                 <div className="relative z-10 w-full h-full bg-white rounded-3xl shadow-2xl border border-gray-200 overflow-hidden">
                   <img
                     src={images[currentIndex]}
                     alt={`Platform feature ${currentIndex + 1}`}
-                    className="w-full h-full object-cover transition-all duration-500 ease-in-out"
+                    className="w-full h-full object-contain transition-all duration-500 ease-in-out"
                   />
 
                   {/* Overlay with gradient */}
