@@ -183,8 +183,7 @@ const testimonials = [
               </span>
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Real results from real businesses using Flable AI to transform
-              their marketing operations
+              Real results from real businesses using Flable AI
             </p>
           </div>
         </ScrollReveal>

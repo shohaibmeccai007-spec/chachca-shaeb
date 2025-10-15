@@ -45,6 +45,18 @@ const Header = () => {
             >
               Book a Demo
             </Link>
+            <div className="flex gap-2">
+              <img
+            src="/assets/GDPR.png"
+            alt="GDP Certified"
+            className="h-16 w-auto object-contain"
+          />
+          <img
+            src="/assets/soc22.png"
+            alt="SOC2 Compliant"
+            className="h-16 w-auto object-contain"
+          />
+            </div>
           </div>
 
           {/* Mobile menu button */}

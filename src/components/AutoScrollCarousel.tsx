@@ -83,7 +83,7 @@ const AutoScrollCarousel = () => {
             <div className="inline-flex items-center gap-2 bg-white/80 backdrop-blur-sm border border-cyan-200 rounded-full px-6 py-3 mb-8">
               <div className="w-2 h-2 rounded-full bg-gradient-to-r from-cyan-500 to-violet-500 animate-pulse"></div>
               <span className="text-sm font-medium text-gray-700">
-                Client Success Stories
+              Onboarded Brands
               </span>
             </div>
             <h2 className="text-5xl md:text-7xl font-bold text-gray-900 mb-8">
@@ -175,13 +175,13 @@ const AutoScrollCarousel = () => {
 <ScrollReveal>
   <div className="mt-20 relative">
     <div className="bg-white/60 backdrop-blur-sm rounded-3xl border border-white/40 p-8 md:p-12">
-      <div className="grid grid-cols-2 md:grid-cols-5 gap-8 md:gap-12">
+      <div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-12">
         {[
-          {
-            number: "50+",
-            label: "Happy Clients",
-            color: "from-cyan-500 to-blue-500",
-          },
+          // {
+          //   number: "50+",
+          //   label: "Happy Clients",
+          //   color: "from-cyan-500 to-blue-500",
+          // },
           {
             number: "10×",
             label: "Faster Campaign Launches",

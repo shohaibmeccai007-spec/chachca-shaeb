@@ -16,9 +16,6 @@ const HeroSection = () => (
           <p className="text-xl md:text-2xl text-gray-700 max-w-2xl leading-relaxed mb-6 font-light text-center">
             A profit-first AI CMO for D2C brands that diagnoses performance and improves campaign profitability across Meta Ads and Google Ads.
           </p>
-          <p className="text-lg md:text-xl text-gray-600 max-w-2xl leading-relaxed mb-8 font-light text-center">
-            It works autonomously, running campaigns and providing insights so your brand can scale smarter and faster.
-          </p>
             {/* Hire CTA Button */}
           <a
             href="/book-demo"
