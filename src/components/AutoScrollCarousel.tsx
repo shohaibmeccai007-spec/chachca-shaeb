@@ -83,12 +83,12 @@ const AutoScrollCarousel = () => {
             <div className="inline-flex items-center gap-2 bg-white/80 backdrop-blur-sm border border-cyan-200 rounded-full px-6 py-3 mb-8">
               <div className="w-2 h-2 rounded-full bg-gradient-to-r from-cyan-500 to-violet-500 animate-pulse"></div>
               <span className="text-sm font-medium text-gray-700">
-              Onboarded Brands
+             Growing Customer Brands
               </span>
             </div>
             <h2 className="text-5xl md:text-7xl font-bold text-gray-900 mb-8">
               <span className="bg-gradient-to-r from-cyan-500 via-violet-500 to-pink-500 bg-clip-text text-transparent">
-                Trusted by Industry Leaders
+                Trusted by many D2C brands
               </span>
             </h2>
             <p className="text-2xl text-gray-600 max-w-4xl mx-auto leading-relaxed font-light">

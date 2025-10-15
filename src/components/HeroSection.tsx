@@ -30,12 +30,16 @@ const HeroSection = () => (
               <span>24/7 AI CMO</span>
             </div>
             <div className="flex items-center gap-2">
-              <div className="w-2 h-2 bg-blue-500 rounded-full"></div>
-              <span>14-day free trial</span>
+              <div className="w-2 h-2 bg-fuchsia-500 rounded-full"></div>
+              <span>80% faster campaign Launches</span>
             </div>
             <div className="flex items-center gap-2">
               <div className="w-2 h-2 bg-purple-500 rounded-full"></div>
               <span>No Marketing Analyst Needed</span>
+            </div>
+            <div className="flex items-center gap-2">
+              <div className="w-2 h-2 bg-blue-500 rounded-full"></div>
+              <span>14-day free trial</span>
             </div>
           </div>
         </div>
